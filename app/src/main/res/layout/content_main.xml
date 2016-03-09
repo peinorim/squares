@@ -13,15 +13,20 @@
     tools:showIn="@layout/app_bar_main">
 
     <TextView
-        android:id="@+id/helloworld"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!" />
 
-    <TextView
-        android:id="@+id/magicCst"
-        android:layout_below="@+id/helloworld"
+    <Button
+        android:id="@+id/startGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Magic constant" />
+        android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_start"
+        android:drawablePadding="10sp"
+        android:text="start game"
+        android:textColor="@color/white"
+        android:textSize="@dimen/normal_text_size" />
 </RelativeLayout>

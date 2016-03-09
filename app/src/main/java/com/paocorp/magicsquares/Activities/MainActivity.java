@@ -1,5 +1,6 @@
 package com.paocorp.magicsquares.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -9,7 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.Button;
 
 import com.paocorp.magicsquares.R;
 import com.paocorp.magicsquares.models.MagicSquareSearch;
@@ -33,12 +35,20 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        MagicSquareSearch magicSquareSearch = new MagicSquareSearch(1);
+        Button button = (Button) findViewById(R.id.startGame);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SquareActivity.class);
+                Bundle b = new Bundle();
+                b.putInt("order", 3);
+                intent.putExtras(b);
+                startActivity(intent);
+            }
+        });
 
-        TextView helloWorld = (TextView) findViewById(R.id.helloworld);
-        helloWorld.setText(magicSquareSearch.getMagicSquare().printMagicSquare());
-        TextView magicCst = (TextView) findViewById(R.id.magicCst);
-        magicCst.setText(magicSquareSearch.getMagicSquare().printSums());
+        MagicSquareSearch magicSquareSearch = new MagicSquareSearch(3, 1);
+
     }
 
     @Override

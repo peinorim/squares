@@ -6,22 +6,27 @@ at random positions.
 import java.util.*;
 
 public class MagicSquare {
-    public int[][] Square = new int[3][3];
-    public int[] Column = new int[9];
+    public int[][] square = new int[3][3];
+    public int[] column = new int[9];
     public int blanks;
     public int[] rowSum = new int[3];
     public int[] colSum = new int[3];
+    public int magicConstant;
     String magicString = "";
 
+    public MagicSquare(int[][] grid) {
+        this.square = grid;
+    }
+
     // Constructor
-    public MagicSquare(int fills) {
+    public MagicSquare(int order, int fills) {
         //Set blanks
         blanks = 9 - fills;
 
         //Create "magic column" to be rearranged as magic square.
 
         for (int i = 0; i <= 8; i++) {
-            Column[i] = 0;
+            column[i] = 0;
         }
 
         //Fill column in N=fills positions with random entries
@@ -41,24 +46,24 @@ public class MagicSquare {
 
         for (int i = 0; i <= fills - 1; i++) {
             index = rand.nextInt(9);
-            while (Column[index] != 0)  // Get unused index.
+            while (column[index] != 0)  // Get unused index.
             {
                 index = rand.nextInt(9);
             }
-            Column[index] = used[i];
+            column[index] = used[i];
         }
 
-        // Fill the Square
+        // Fill the square
         for (int i = 0; i <= 2; i++) {
             for (int j = 0; j <= 2; j++) {
-                Square[i][j] = 0;
+                square[i][j] = 0;
             }
         }
 
         //Fill the magic square using the magic column.
         for (int i = 0; i <= 2; i++) {
             for (int j = 0; j <= 2; j++) {
-                Square[i][j] = Column[3 * i + j];
+                square[i][j] = column[3 * i + j];
             }
         }
 
@@ -71,12 +76,12 @@ public class MagicSquare {
 
     //  Fill the magic square entry [m,n] with value val.
     public void fillEntry(int m, int n, int val) {
-        if (Square[m][n] == 0) {
+        if (square[m][n] == 0) {
             blanks -= 1;
         }
 
-        Square[m][n] = val;
-        Column[3 * m + n] = val; //Update column, too.
+        square[m][n] = val;
+        column[3 * m + n] = val; //Update column, too.
         sumUpdates();  //Update row and column sums
     }
 
@@ -89,10 +94,14 @@ public class MagicSquare {
 
         for (int i = 0; i <= 2; i++) {
             for (int j = 0; j <= 2; j++) {
-                rowSum[i] += Square[i][j];
-                colSum[i] += Square[j][i];
+                rowSum[i] += square[i][j];
+                colSum[i] += square[j][i];
             }
         }
+    }
+
+    public boolean compareSquares (MagicSquare squareBase, MagicSquare squareToCheck) {
+        return Arrays.equals(squareBase.square, squareToCheck.square);
     }
 
     //   Print current magic square to the console.
@@ -100,7 +109,7 @@ public class MagicSquare {
         for (int i = 0; i <= 2; i++) {
             magicString += "\t \t \t [ \t";
             for (int j = 0; j <= 2; j++) {
-                magicString += Square[i][j];
+                magicString += square[i][j];
                 if (j != 2) {
                     magicString += "\t \t";
                 }

@@ -16,7 +16,7 @@ public class MagicSquareSearch {
 
     MagicSquare magicSquare;
 
-    public MagicSquareSearch(int number) {
+    public MagicSquareSearch(int order, int number) {
 
         //Prompt user for input
 /*        Scanner scan = new Scanner(System.in);
@@ -31,12 +31,12 @@ public class MagicSquareSearch {
         //Get a candidate magic square object
         //	with number entries filled at random.
 
-        magicSquare = new MagicSquare(number);
+        magicSquare = new MagicSquare(order, number);
         int nblanks = magicSquare.blanks;
         int nfills = 9 - magicSquare.blanks;
-        int[] Blanks = BruteForce.findBlanks(magicSquare.Square, nblanks);  //Position of blanks
-        int[] Fills = BruteForce.findFilled(magicSquare.Square, nfills);      // Position of filled entries
-        int[] Used = BruteForce.usedFills(magicSquare.Square, Fills, nfills);  // Filled values
+        int[] Blanks = BruteForce.findBlanks(magicSquare.square, nblanks);  //Position of blanks
+        int[] Fills = BruteForce.findFilled(magicSquare.square, nfills);      // Position of filled entries
+        int[] Used = BruteForce.usedFills(magicSquare.square, Fills, nfills);  // Filled values
         int[] Remains = BruteForce.remainingFills(Used, nfills);    // Remaining choices
 
 
@@ -72,8 +72,8 @@ public class MagicSquareSearch {
         boolean solved = false;
         int index_i, index_j;
         int counter = 0;
-        int[] R = new int[3];  //Row sum
-        int[] C = new int[3];  //Col sum
+        int[] row = new int[3];  //Row sum
+        int[] column = new int[3];  //Col sum
         int[] currentPermGuess = new int[nblanks];
 
         while (solved == false && counter <= Permutations.factorial(nblanks) - 1) {
@@ -85,12 +85,13 @@ public class MagicSquareSearch {
             }
 
 
-            R = magicSquare.rowSum;
-            C = magicSquare.colSum;
+            row = magicSquare.rowSum;
+            column = magicSquare.colSum;
 
             //Check for solution
-            if (R[0] == R[1] && R[1] == R[2] && C[0] == C[1] && C[1] == C[2]) {
+            if (row[0] == row[1] && row[1] == row[2] && column[0] == column[1] && column[1] == column[2]) {
                 solved = true;
+                magicSquare.magicConstant = row[0];
 /*                System.out.println("!!!!SOLVED!!!! \n Number of iterations: " + (counter + 1));
                 System.out.println("%%%%%%%%%%%%%%%");
                 System.out.println("\n Magic square: ");
