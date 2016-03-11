@@ -16,6 +16,7 @@ public class MagicSquare {
 
     public MagicSquare(int[][] grid) {
         this.square = grid;
+        sumUpdates();
     }
 
     // Constructor
@@ -100,8 +101,8 @@ public class MagicSquare {
         }
     }
 
-    public boolean compareSquares (MagicSquare squareBase, MagicSquare squareToCheck) {
-        return Arrays.equals(squareBase.square, squareToCheck.square);
+    public boolean compareSquares (MagicSquare squareToCheck) {
+        return Arrays.equals(this.square, squareToCheck.square);
     }
 
     //   Print current magic square to the console.

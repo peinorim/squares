@@ -8,10 +8,15 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.paocorp.magicsquares.R;
 import com.paocorp.magicsquares.models.MagicSquare;
@@ -34,6 +39,15 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
     EditText edt31;
     EditText edt32;
     EditText edt33;
+
+    TextView h1;
+    TextView h2;
+    TextView h3;
+    TextView v1;
+    TextView v2;
+    TextView v3;
+    TextView d1;
+    TextView d2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,10 +76,17 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         edt13 = (EditText) findViewById(R.id.et13);
         edt21 = (EditText) findViewById(R.id.et21);
         edt22 = (EditText) findViewById(R.id.et22);
-        edt23 = (EditText) findViewById(R.id.et33);
+        edt23 = (EditText) findViewById(R.id.et23);
         edt31 = (EditText) findViewById(R.id.et31);
         edt32 = (EditText) findViewById(R.id.et32);
         edt33 = (EditText) findViewById(R.id.et33);
+
+        h1 = (TextView) findViewById(R.id.SumXResult1);
+        h2 = (TextView) findViewById(R.id.SumXResult2);
+        h3 = (TextView) findViewById(R.id.SumXResult3);
+        v1 = (TextView) findViewById(R.id.SumYResult1);
+        v2 = (TextView) findViewById(R.id.SumYResult2);
+        v3 = (TextView) findViewById(R.id.SumYResult3);
 
         MagicSquareSearch magicSquareSearch = new MagicSquareSearch(order, 1);
         magicSquareBase = magicSquareSearch.getMagicSquare();
@@ -76,17 +97,17 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
     public void checkSquare(View v) {
 
         //first row
-        int et11 = Integer.parseInt(edt11.getText().toString());
-        int et12 = Integer.parseInt(edt12.getText().toString());
-        int et13 = Integer.parseInt(edt13.getText().toString());
+        int et11 = Integer.parseInt(nulltoIntegerDefault(edt11.getText().toString()));
+        int et12 = Integer.parseInt(nulltoIntegerDefault(edt12.getText().toString()));
+        int et13 = Integer.parseInt(nulltoIntegerDefault(edt13.getText().toString()));
         //second row
-        int et21 = Integer.parseInt(edt21.getText().toString());
-        int et22 = Integer.parseInt(edt22.getText().toString());
-        int et23 = Integer.parseInt(edt23.getText().toString());
+        int et21 = Integer.parseInt(nulltoIntegerDefault(edt21.getText().toString()));
+        int et22 = Integer.parseInt(nulltoIntegerDefault(edt22.getText().toString()));
+        int et23 = Integer.parseInt(nulltoIntegerDefault(edt23.getText().toString()));
         //third row
-        int et31 = Integer.parseInt(edt31.getText().toString());
-        int et32 = Integer.parseInt(edt32.getText().toString());
-        int et33 = Integer.parseInt(edt33.getText().toString());
+        int et31 = Integer.parseInt(nulltoIntegerDefault(edt31.getText().toString()));
+        int et32 = Integer.parseInt(nulltoIntegerDefault(edt32.getText().toString()));
+        int et33 = Integer.parseInt(nulltoIntegerDefault(edt33.getText().toString()));
 
         int[][] arrayInput = new int[3][3];
         arrayInput[0][0] = et11;
@@ -100,6 +121,42 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         arrayInput[2][2] = et33;
 
         MagicSquare squareToCheck = new MagicSquare(arrayInput);
+        Toast toast;
+        if (magicSquareBase.compareSquares(squareToCheck)) {
+            //square solved !
+            toast = Toast.makeText(getBaseContext(), "solved !", Toast.LENGTH_SHORT);
+        } else {
+            //remains errors
+            toast = Toast.makeText(getBaseContext(), "errors remain...", Toast.LENGTH_SHORT);
+        }
+        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+        toast.show();
+
+        h1.setText(String.valueOf(squareToCheck.rowSum[0]));
+        h2.setText(String.valueOf(squareToCheck.rowSum[1]));
+        h3.setText(String.valueOf(squareToCheck.rowSum[2]));
+        v1.setText(String.valueOf(squareToCheck.colSum[0]));
+        v2.setText(String.valueOf(squareToCheck.colSum[1]));
+        v3.setText(String.valueOf(squareToCheck.colSum[2]));
+        //d1.setText(String.valueOf(squareToCheck.rowSum[3]));
+        //d2.setText(String.valueOf(squareToCheck.colSum[3]));
+    }
+
+    String nulltoIntegerDefault(String value) {
+        if (!isIntValue(value)) {
+            value = "0";
+        }
+        return value;
+    }
+
+    boolean isIntValue(String val) {
+        try {
+            val = val.replace(" ", "");
+            Integer.parseInt(val);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
     }
 
     public void fillGrid(int[][] square) {
@@ -128,6 +185,15 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
                 }
             }
         }
+        edt11.addTextChangedListener(new GenericTextWatcher(edt11));
+        edt12.addTextChangedListener(new GenericTextWatcher(edt12));
+        edt13.addTextChangedListener(new GenericTextWatcher(edt13));
+        edt21.addTextChangedListener(new GenericTextWatcher(edt21));
+        edt22.addTextChangedListener(new GenericTextWatcher(edt22));
+        edt23.addTextChangedListener(new GenericTextWatcher(edt23));
+        edt31.addTextChangedListener(new GenericTextWatcher(edt31));
+        edt32.addTextChangedListener(new GenericTextWatcher(edt32));
+        edt33.addTextChangedListener(new GenericTextWatcher(edt33));
     }
 
     public static int randInt(int min, int max) {
@@ -194,5 +260,28 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    //Declaration
+    public class GenericTextWatcher implements TextWatcher {
+
+        private View view;
+
+        public GenericTextWatcher(View view) {
+            this.view = view;
+        }
+
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        }
+
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        }
+
+        public void afterTextChanged(Editable editable) {
+            int input = Integer.parseInt(nulltoIntegerDefault(editable.toString()));
+            if (input != 0) {
+                checkSquare(view);
+            }
+        }
     }
 }

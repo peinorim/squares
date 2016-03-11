@@ -16,129 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:orientation="vertical" >
-
-        <LinearLayout
-            android:id="@+id/LLX"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/SumX"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:background="#000"
-                android:gravity="center_horizontal"
-                android:text="Horizontal Sum"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:id="@+id/LLX1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal" >
-
-                <TextView
-                    android:id="@+id/SumXResult1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="15dp"
-                    android:layout_weight="0.33"
-                    android:gravity="center"
-                    android:hint="H1"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/SumXResult2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.33"
-                    android:gravity="center"
-                    android:hint="H2"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/SumXResult3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_weight="0.33"
-                    android:gravity="center"
-                    android:hint="H3"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/LLY"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/SumY"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#000"
-                android:gravity="center_horizontal"
-                android:text="Vertical Sum"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:id="@+id/LLY1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal" >
-
-                <TextView
-                    android:id="@+id/SumYResult1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="15dp"
-                    android:layout_weight="0.33"
-                    android:gravity="center"
-                    android:hint="V1"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/SumYResult2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.33"
-                    android:gravity="center"
-                    android:hint="V2"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/SumYResult3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_weight="0.33"
-                    android:gravity="center"
-                    android:hint="V3"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </LinearLayout>
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/LLD"
@@ -146,16 +24,15 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/SumD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#000"
                 android:gravity="center_horizontal"
                 android:text="Diagonal Sum"
-                android:textColor="@android:color/white"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -164,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/SumDResult1"
@@ -189,185 +66,286 @@
             </LinearLayout>
         </LinearLayout>
 
-        <TableLayout
-            android:id="@+id/tabsq33"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:background="#000000"
-            android:gravity="center_horizontal"
-            android:paddingTop="1dp" >
+            android:layout_gravity="center">
 
-            <TableRow
-                android:id="@+id/tableRow11"
+            <TableLayout
+                android:id="@+id/tabsq33"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="center"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="10dp"
                 android:background="#000000"
                 android:gravity="center_horizontal"
-                android:paddingBottom="3dp"
-                android:paddingRight="3dp"
-                android:paddingTop="3dp" >
+                android:paddingTop="1dp">
 
-                <EditText
-                    android:id="@+id/et11"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginLeft="1dp"
-                    android:background="@color/white"
-                    android:focusableInTouchMode="true"
-                    android:gravity="center"
-                    android:inputType="number"
-                    android:padding="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/square_text_size"
-                    android:textStyle="bold" />
+                <TableRow
+                    android:id="@+id/tableRow11"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#000000"
+                    android:gravity="center_horizontal"
+                    android:paddingBottom="3dp"
+                    android:paddingRight="3dp"
+                    android:paddingTop="3dp">
 
-                <EditText
-                    android:id="@+id/et12"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginLeft="1dp"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:inputType="number"
-                    android:padding="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/square_text_size"
-                    android:textStyle="bold" />
+                    <EditText
+                        android:id="@+id/et11"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="1dp"
+                        android:background="@color/white"
+                        android:focusableInTouchMode="true"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/square_text_size"
+                        android:textStyle="bold" />
 
-                <requestFocus />
+                    <EditText
+                        android:id="@+id/et12"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="1dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/square_text_size"
+                        android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/et13"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginLeft="1dp"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:inputType="number"
-                    android:padding="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/square_text_size"
-                    android:textStyle="bold" />
-            </TableRow>
+                    <requestFocus />
 
-            <TableRow
-                android:id="@+id/tableRow21"
+                    <EditText
+                        android:id="@+id/et13"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="1dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/square_text_size"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#000"
+                    android:gravity="center_horizontal"
+                    android:paddingBottom="3dp"
+                    android:paddingRight="3dp">
+
+                    <EditText
+                        android:id="@+id/et21"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="1dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/square_text_size"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/et22"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="1dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/square_text_size"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/et23"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="1dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/square_text_size"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow31"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#000"
+                    android:gravity="center_horizontal"
+                    android:paddingBottom="3dp"
+                    android:paddingRight="3dp">
+
+                    <EditText
+                        android:id="@+id/et31"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="1dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/square_text_size"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/et32"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="1dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/square_text_size"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/et33"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="1dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/square_text_size"
+                        android:textStyle="bold" />
+                </TableRow>
+            </TableLayout>
+
+            <TextView
+                android:id="@+id/SumXResult1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@+id/tabsq33"
+                android:layout_weight="0.33"
+                android:gravity="center"
+                android:hint="H1"
+                android:padding="5dp"
+                android:textColor="@color/grey_darken2"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/SumXResult2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="0dp"
+                android:layout_toRightOf="@+id/tabsq33"
+                android:layout_below="@+id/SumXResult1"
+                android:layout_weight="0.33"
+                android:gravity="center"
+                android:hint="H2"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/SumXResult3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="0dp"
+                android:layout_toRightOf="@+id/tabsq33"
+                android:layout_below="@+id/SumXResult2"
+                android:layout_weight="0.33"
+                android:gravity="center"
+                android:hint="H3"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/LLY"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/LLY1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="#000"
                 android:gravity="center_horizontal"
-                android:paddingBottom="3dp"
-                android:paddingRight="3dp" >
+                android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/et21"
+                <TextView
+                    android:id="@+id/SumYResult1"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:layout_marginLeft="1dp"
-                    android:background="@color/white"
+                    android:layout_marginRight="0dp"
+                    android:layout_weight="0.33"
                     android:gravity="center"
-                    android:inputType="number"
-                    android:padding="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/square_text_size"
+                    android:hint="V1"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/et22"
+                <TextView
+                    android:id="@+id/SumYResult2"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:layout_marginLeft="1dp"
-                    android:background="@color/white"
+                    android:layout_marginRight="0dp"
+                    android:layout_weight="0.33"
                     android:gravity="center"
-                    android:inputType="number"
-                    android:padding="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/square_text_size"
+                    android:hint="V2"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <EditText
-                    android:id="@+id/et23"
+                <TextView
+                    android:id="@+id/SumYResult3"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:layout_marginLeft="1dp"
-                    android:background="@color/white"
+                    android:layout_marginRight="0dp"
+                    android:layout_weight="0.33"
                     android:gravity="center"
-                    android:inputType="number"
-                    android:padding="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/square_text_size"
+                    android:hint="V3"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/tableRow31"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="#000"
-                android:gravity="center_horizontal"
-                android:paddingBottom="3dp"
-                android:paddingRight="3dp" >
-
-                <EditText
-                    android:id="@+id/et31"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginLeft="1dp"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:inputType="number"
-                    android:padding="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/square_text_size"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/et32"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginLeft="1dp"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:inputType="number"
-                    android:padding="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/square_text_size"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/et33"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginLeft="1dp"
-                    android:background="@color/white"
-                    android:gravity="center"
-                    android:inputType="number"
-                    android:padding="5dp"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/square_text_size"
-                    android:textStyle="bold" />
-            </TableRow>
-        </TableLayout>
+            </LinearLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/btns"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btCheck"
-                android:onClick="checkSquare"
                 android:layout_width="120dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
                 android:gravity="center_horizontal|center_vertical"
+                android:onClick="checkSquare"
                 android:text="@string/check"
+                android:background="@drawable/button_start"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -378,7 +356,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btHelp"
@@ -387,6 +365,8 @@
                 android:layout_gravity="center"
                 android:gravity="center_horizontal|center_vertical"
                 android:text="@string/help"
+                android:background="@drawable/button_start"
+                android:drawableRight="@drawable/ic_help_24dp"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
