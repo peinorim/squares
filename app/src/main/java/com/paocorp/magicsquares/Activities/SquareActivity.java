@@ -29,7 +29,6 @@ import java.util.Random;
 public class SquareActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     MagicSquare magicSquareBase;
-    int[][] squareInput;
     EditText edt11;
     EditText edt12;
     EditText edt13;
@@ -91,7 +90,7 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         MagicSquareSearch magicSquareSearch = new MagicSquareSearch(order, 1);
         magicSquareBase = magicSquareSearch.getMagicSquare();
 
-        fillGrid(magicSquareBase.square);
+        fillGrid(magicSquareBase.getSquare());
     }
 
     public void checkSquare(View v) {
@@ -132,14 +131,14 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
         toast.show();
 
-        h1.setText(String.valueOf(squareToCheck.rowSum[0]));
-        h2.setText(String.valueOf(squareToCheck.rowSum[1]));
-        h3.setText(String.valueOf(squareToCheck.rowSum[2]));
-        v1.setText(String.valueOf(squareToCheck.colSum[0]));
-        v2.setText(String.valueOf(squareToCheck.colSum[1]));
-        v3.setText(String.valueOf(squareToCheck.colSum[2]));
-        //d1.setText(String.valueOf(squareToCheck.rowSum[3]));
-        //d2.setText(String.valueOf(squareToCheck.colSum[3]));
+        h1.setText(String.valueOf(squareToCheck.getRowSum()[0]));
+        h2.setText(String.valueOf(squareToCheck.getRowSum()[1]));
+        h3.setText(String.valueOf(squareToCheck.getRowSum()[2]));
+        v1.setText(String.valueOf(squareToCheck.getColSum()[0]));
+        v2.setText(String.valueOf(squareToCheck.getColSum()[1]));
+        v3.setText(String.valueOf(squareToCheck.getColSum()[2]));
+        //d1.setText(String.valueOf(squareToCheck.getSquare()[0][0]));
+        //d2.setText(String.valueOf(squareToCheck.getSquare()[0][0]));
     }
 
     String nulltoIntegerDefault(String value) {
@@ -160,7 +159,8 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
     }
 
     public void fillGrid(int[][] square) {
-        squareInput = square;
+        MagicSquare magicSquareInput = magicSquareBase.copy();
+        int[][] squareInput = magicSquareInput.getSquare();
         List<Integer> randList = new ArrayList<Integer>();
         while (randList.size() < 6) {
             int randRow = randInt(0, 2);

@@ -32,11 +32,11 @@ public class MagicSquareSearch {
         //	with number entries filled at random.
 
         magicSquare = new MagicSquare(order, number);
-        int nblanks = magicSquare.blanks;
-        int nfills = 9 - magicSquare.blanks;
-        int[] Blanks = BruteForce.findBlanks(magicSquare.square, nblanks);  //Position of blanks
-        int[] Fills = BruteForce.findFilled(magicSquare.square, nfills);      // Position of filled entries
-        int[] Used = BruteForce.usedFills(magicSquare.square, Fills, nfills);  // Filled values
+        int nblanks = magicSquare.getBlanks();
+        int nfills = 9 - magicSquare.getBlanks();
+        int[] Blanks = BruteForce.findBlanks(magicSquare.getSquare(), nblanks);  //Position of blanks
+        int[] Fills = BruteForce.findFilled(magicSquare.getSquare(), nfills);      // Position of filled entries
+        int[] Used = BruteForce.usedFills(magicSquare.getSquare(), Fills, nfills);  // Filled values
         int[] Remains = BruteForce.remainingFills(Used, nfills);    // Remaining choices
 
 
@@ -85,13 +85,13 @@ public class MagicSquareSearch {
             }
 
 
-            row = magicSquare.rowSum;
-            column = magicSquare.colSum;
+            row = magicSquare.getRowSum();
+            column = magicSquare.getColSum();
 
             //Check for solution
             if (row[0] == row[1] && row[1] == row[2] && column[0] == column[1] && column[1] == column[2]) {
                 solved = true;
-                magicSquare.magicConstant = row[0];
+                magicSquare.setMagicConstant(row[0]);
 /*                System.out.println("!!!!SOLVED!!!! \n Number of iterations: " + (counter + 1));
                 System.out.println("%%%%%%%%%%%%%%%");
                 System.out.println("\n Magic square: ");
