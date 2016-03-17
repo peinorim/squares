@@ -101,7 +101,7 @@ public class MagicSquare {
         }
     }
 
-    public boolean compareSquares (MagicSquare squareToCheck) {
+    public boolean compareSquares(MagicSquare squareToCheck) {
         return Arrays.deepEquals(this.square, squareToCheck.square);
     }
 
@@ -113,6 +113,14 @@ public class MagicSquare {
             }
         }
         return new MagicSquare(newGrid);
+    }
+
+    public int getDiagonalFirst() {
+        return this.square[0][0] + this.square[1][1] + this.square[2][2];
+    }
+
+    public int getDiagonalSecond() {
+        return this.square[2][0] + this.square[1][1] + this.square[0][2];
     }
 
     public int[] getColumn() {

@@ -87,6 +87,9 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         v2 = (TextView) findViewById(R.id.SumYResult2);
         v3 = (TextView) findViewById(R.id.SumYResult3);
 
+        d1 = (TextView) findViewById(R.id.SumDResult1);
+        d2 = (TextView) findViewById(R.id.SumDResult2);
+
         MagicSquareSearch magicSquareSearch = new MagicSquareSearch(order, 1);
         magicSquareBase = magicSquareSearch.getMagicSquare();
 
@@ -137,8 +140,8 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         v1.setText(String.valueOf(squareToCheck.getColSum()[0]));
         v2.setText(String.valueOf(squareToCheck.getColSum()[1]));
         v3.setText(String.valueOf(squareToCheck.getColSum()[2]));
-        //d1.setText(String.valueOf(squareToCheck.getSquare()[0][0]));
-        //d2.setText(String.valueOf(squareToCheck.getSquare()[0][0]));
+        d1.setText(String.valueOf(squareToCheck.getDiagonalFirst()));
+        d2.setText(String.valueOf(squareToCheck.getDiagonalSecond()));
     }
 
     String nulltoIntegerDefault(String value) {
