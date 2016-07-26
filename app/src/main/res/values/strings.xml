@@ -9,4 +9,10 @@
     <string name="blank">&#160;</string>
     <string name="check">Check</string>
     <string name="help">Help</string>
+    <string name="rate_app">Rate this app</string>
+    <string name="store_url">https://play.google.com/store/apps/details?id=com.paocorp.magicsquares</string>
+    <string name="need_help">Need some help ?</string>
+    <string name="need_help_text">In recreational mathematics, a magic square is an arrangement of distinct numbers (i.e., each number is used once), usually integers, in a square grid, where the numbers in each row, and in each column, and the numbers in the main and secondary diagonals, all add up to the same number, called the "magic constant."</string>
+    <string name="need_help_text2">A magic square has the same number of rows as it has columns, and in conventional math notation, "n" stands for the number of rows (and columns) it has.</string>
+    <string name="close">Close</string>
 </resources>

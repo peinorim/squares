@@ -1,22 +1,25 @@
 package com.paocorp.magicsquares.Activities;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.paocorp.magicsquares.R;
 import com.paocorp.magicsquares.models.MagicSquare;
@@ -65,11 +68,6 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        Bundle b = getIntent().getExtras();
-        int order = b.getInt("order");
-        if (order == 0) {
-            order = 3;
-        }
         edt11 = (EditText) findViewById(R.id.et11);
         edt12 = (EditText) findViewById(R.id.et12);
         edt13 = (EditText) findViewById(R.id.et13);
@@ -90,10 +88,13 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         d1 = (TextView) findViewById(R.id.SumDResult1);
         d2 = (TextView) findViewById(R.id.SumDResult2);
 
-        MagicSquareSearch magicSquareSearch = new MagicSquareSearch(order, 1);
-        magicSquareBase = magicSquareSearch.getMagicSquare();
+        magicSquareBase = (MagicSquare) getIntent().getSerializableExtra("square");
+        if (magicSquareBase == null || !magicSquareBase.valid()) {
+            MagicSquareSearch magicSquareSearch = new MagicSquareSearch();
+            magicSquareBase = magicSquareSearch.getMagicSquare();
+        }
 
-        fillGrid(magicSquareBase.getSquare());
+        this.fillGrid();
     }
 
     public void checkSquare(View v) {
@@ -123,16 +124,10 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         arrayInput[2][2] = et33;
 
         MagicSquare squareToCheck = new MagicSquare(arrayInput);
-        Toast toast;
+
         if (magicSquareBase.compareSquares(squareToCheck)) {
             //square solved !
-            toast = Toast.makeText(getBaseContext(), "solved !", Toast.LENGTH_SHORT);
-        } else {
-            //remains errors
-            toast = Toast.makeText(getBaseContext(), "errors remain...", Toast.LENGTH_SHORT);
         }
-        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-        toast.show();
 
         h1.setText(String.valueOf(squareToCheck.getRowSum()[0]));
         h2.setText(String.valueOf(squareToCheck.getRowSum()[1]));
@@ -161,7 +156,7 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         return true;
     }
 
-    public void fillGrid(int[][] square) {
+    public void fillGrid() {
         MagicSquare magicSquareInput = magicSquareBase.copy();
         int[][] squareInput = magicSquareInput.getSquare();
         List<Integer> randList = new ArrayList<Integer>();
@@ -204,8 +199,24 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         Random rand = new Random();
         // nextInt is normally exclusive of the top value,
         // so add 1 to make it inclusive
-        int randomNum = rand.nextInt((max - min) + 1) + min;
-        return randomNum;
+        return rand.nextInt((max - min) + 1) + min;
+    }
+
+    public void createHelpDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        // Get the layout inflater
+        LayoutInflater inflater = this.getLayoutInflater();
+
+        // Inflate and set the layout for the dialog
+        // Pass null as the parent view because its going in the dialog layout
+        builder.setView(inflater.inflate(R.layout.help_dialog, null))
+                .setNegativeButton(R.string.close, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 
     @Override
@@ -233,7 +244,8 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_help) {
+            createHelpDialog();
             return true;
         }
 
@@ -245,23 +257,20 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        Intent intent = new Intent(this, SquareActivity.class);
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.new_game) {
 
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_rate) {
+            intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.store_url)));
         }
+
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+        startActivity(intent);
         return true;
     }
 
