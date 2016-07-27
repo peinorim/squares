@@ -19,6 +19,7 @@
         android:src="@mipmap/ic_launcher" />
 
     <TextView
+        android:id="@+id/appVersion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
@@ -29,6 +30,8 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="android.studio@android.com" />
+        android:autoLink="web"
+        android:textColorLink="@color/white"
+        android:text="@string/author" />
 
 </LinearLayout>

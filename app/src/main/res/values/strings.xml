@@ -1,28 +1,30 @@
 <resources>
     <string name="app_name">Magic Squares</string>
+    <string name="author">paocorp.com</string>
+    <string name="store_url" translatable="false">https://play.google.com/store/apps/details?id=com.paocorp.magicsquares</string>
+    <string name="facebook_app_id" translatable="false">914409908597657</string>
+    <string name="interstitial" translatable="false">ca-app-pub-2669557761715669/2388367230</string>
+    <string name="app_icon_url" translatable="false">http://paocorp.com/res/images/ico/magicsquare.png</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="action_settings">Settings</string>
-    <string name="odd">Order must be odd</string>
     <string name="blank" translatable="false">&#160;</string>
     <string name="check">Check</string>
     <string name="help">Help</string>
+    <string name="close">Close</string>
+    <string name="share">Share</string>
+
     <string name="rate_app">Rate this app</string>
-    <string name="store_url" translatable="false">https://play.google.com/store/apps/details?id=com.paocorp.magicsquares</string>
     <string name="need_help">Need some help ?</string>
     <string name="need_help_text">In recreational mathematics, a magic square is an arrangement of distinct numbers (i.e., each number is used once), usually integers, in a square grid, where the numbers in each row, and in each column, and the numbers in the main and secondary diagonals, all add up to the same number, called the "magic constant."</string>
     <string name="need_help_text2">A magic square has the same number of rows as it has columns, and in conventional math notation, "n" stands for the number of rows (and columns) it has.</string>
-    <string name="close">Close</string>
-    <string name="share">Share</string>
     <string name="new_game">Start new game</string>
     <string name="shareFB">Share on Facebook</string>
     <string name="fb_share_title">I played Magic Squares !</string>
     <string name="fb_ContentDesc">I like this Magic Squares app !</string>
     <string name="fb_solved">I solved a magic square !</string>
-    <string name="facebook_app_id" translatable="false">914409908597657</string>
-    <string name="app_icon_url" translatable="false">http://paocorp.com/res/images/ico/magicsquare.png</string>
     <string name="end_title">You solved this Magic Square !\n Congratulations !</string>
     <string name="magic_cst">Magic constant : %1$d</string>
+    <string name="diagonal_sum">Diagonal Sum</string>
 </resources>

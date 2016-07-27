@@ -2,6 +2,8 @@ package com.paocorp.magicsquares.Activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -25,9 +27,13 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.paocorp.magicsquares.R;
 import com.paocorp.magicsquares.models.MagicSquare;
 import com.paocorp.magicsquares.models.MagicSquareSearch;
+import com.paocorp.magicsquares.models.ShowAdsApplication;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,8 +42,11 @@ import java.util.Random;
 public class SquareActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     MagicSquare magicSquareBase;
+    MagicSquare squareToCheck;
     ShareDialog shareDialog;
     CallbackManager callbackManager;
+    PackageInfo pInfo;
+    protected InterstitialAd mInterstitialAd = new InterstitialAd(this);
     EditText edt11;
     EditText edt12;
     EditText edt13;
@@ -74,6 +83,8 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        LayoutInflater.from(this).inflate(R.layout.nav_header_main, navigationView);
+
         edt11 = (EditText) findViewById(R.id.et11);
         edt12 = (EditText) findViewById(R.id.et12);
         edt13 = (EditText) findViewById(R.id.et13);
@@ -100,11 +111,36 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
             magicSquareBase = magicSquareSearch.getMagicSquare();
         }
 
-        this.fillGrid();
+        fillGrid();
+        checkSquare(d2);
 
         FacebookSdk.sdkInitialize(getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
         shareDialog = new ShareDialog(this);
+
+        final ShowAdsApplication hideAdObj = ((ShowAdsApplication) getApplicationContext());
+        boolean hideAd = hideAdObj.getHideAd();
+
+        if (!hideAd) {
+            mInterstitialAd.setAdUnitId(this.getResources().getString(R.string.interstitial));
+            requestNewInterstitial();
+            mInterstitialAd.setAdListener(new AdListener() {
+                @Override
+                public void onAdLoaded() {
+                    showInterstitial();
+                    hideAdObj.setHideAd(true);
+                }
+            });
+        }
+
+        try {
+            pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+            TextView txv = (TextView) findViewById(R.id.appVersion);
+            String APPINFO = txv.getText() + " v" + pInfo.versionName;
+            txv.setText(APPINFO);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public void checkSquare(View v) {
@@ -133,7 +169,7 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         arrayInput[2][1] = et32;
         arrayInput[2][2] = et33;
 
-        MagicSquare squareToCheck = new MagicSquare(arrayInput);
+        squareToCheck = new MagicSquare(arrayInput);
 
         if (magicSquareBase.compareSquares(squareToCheck)) {
             Intent intent = new Intent(this, EndActivity.class);
@@ -322,6 +358,17 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
             if (input != 0) {
                 checkSquare(view);
             }
+        }
+    }
+
+    protected void requestNewInterstitial() {
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mInterstitialAd.loadAd(adRequest);
+    }
+
+    protected void showInterstitial() {
+        if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
         }
     }
 }
