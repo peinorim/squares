@@ -4,15 +4,15 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/new_game"
-            android:title="New game" />
+            android:title="@string/new_game" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="@string/share">
         <menu>
             <item
                 android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:icon="@drawable/com_facebook_button_icon"
+                android:title="@string/shareFB" />
             <item
                 android:id="@+id/nav_rate"
                 android:icon="@drawable/ic_star_black_24dp"

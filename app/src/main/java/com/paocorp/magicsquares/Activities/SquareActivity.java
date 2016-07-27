@@ -3,6 +3,7 @@ package com.paocorp.magicsquares.Activities;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
@@ -10,7 +11,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -21,6 +21,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookSdk;
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.ShareDialog;
 import com.paocorp.magicsquares.R;
 import com.paocorp.magicsquares.models.MagicSquare;
 import com.paocorp.magicsquares.models.MagicSquareSearch;
@@ -32,6 +36,8 @@ import java.util.Random;
 public class SquareActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     MagicSquare magicSquareBase;
+    ShareDialog shareDialog;
+    CallbackManager callbackManager;
     EditText edt11;
     EditText edt12;
     EditText edt13;
@@ -95,6 +101,10 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         }
 
         this.fillGrid();
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        callbackManager = CallbackManager.Factory.create();
+        shareDialog = new ShareDialog(this);
     }
 
     public void checkSquare(View v) {
@@ -126,7 +136,10 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         MagicSquare squareToCheck = new MagicSquare(arrayInput);
 
         if (magicSquareBase.compareSquares(squareToCheck)) {
-            //square solved !
+            Intent intent = new Intent(this, EndActivity.class);
+            intent.putExtra("square", magicSquareBase);
+            startActivity(intent);
+            finish();
         }
 
         h1.setText(String.valueOf(squareToCheck.getRowSum()[0]));
@@ -176,6 +189,7 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
                 if (input != null) {
                     if (squareInput[i][j] != 0) {
                         input.setText(String.valueOf(squareInput[i][j]));
+                        input.setEnabled(false);
                     } else {
                         input.setText("");
                         input.setTextColor(ContextCompat.getColor(getBaseContext(), R.color.teal_darken3));
@@ -183,6 +197,8 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
                 }
             }
         }
+        TextView cst = (TextView) findViewById(R.id.magicCst);
+        cst.setText(getResources().getString(R.string.magic_cst, magicSquareBase.getMagicConstant()));
         edt11.addTextChangedListener(new GenericTextWatcher(edt11));
         edt12.addTextChangedListener(new GenericTextWatcher(edt12));
         edt13.addTextChangedListener(new GenericTextWatcher(edt13));
@@ -261,6 +277,18 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
 
         if (id == R.id.new_game) {
 
+        } else if (id == R.id.nav_share) {
+            if (ShareDialog.canShow(ShareLinkContent.class)) {
+                String fbText = getResources().getString(R.string.fb_ContentDesc);
+                ShareLinkContent linkContent = new ShareLinkContent.Builder()
+                        .setContentUrl(Uri.parse(getResources().getString(R.string.store_url)))
+                        .setContentTitle(getResources().getString(R.string.app_name))
+                        .setContentDescription(fbText)
+                        .setImageUrl(Uri.parse(getResources().getString(R.string.app_icon_url)))
+                        .build();
+
+                shareDialog.show(linkContent);
+            }
         } else if (id == R.id.nav_rate) {
             intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.store_url)));
         }

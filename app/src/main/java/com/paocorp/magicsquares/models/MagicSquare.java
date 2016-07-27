@@ -36,7 +36,7 @@ public class MagicSquare implements Serializable {
     }
 
     public boolean compareSquares(MagicSquare squareToCheck) {
-        return Arrays.deepEquals(this.square, squareToCheck.square);
+        return Arrays.deepEquals(this.getSquare(), squareToCheck.getSquare());
     }
 
     public MagicSquare copy() {
@@ -96,6 +96,9 @@ public class MagicSquare implements Serializable {
     }
 
     public int getMagicConstant() {
+        if (magicConstant == 0) {
+            this.magicConstant = this.getDiagonalFirst();
+        }
         return this.magicConstant;
     }
 
