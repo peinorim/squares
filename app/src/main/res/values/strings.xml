@@ -24,7 +24,12 @@
     <string name="fb_share_title">I played Magic Squares !</string>
     <string name="fb_ContentDesc">I like this Magic Squares app !</string>
     <string name="fb_solved">I solved a magic square !</string>
-    <string name="end_title">You solved this Magic Square !\n Congratulations !</string>
+    <string name="days"> %1$d days</string>
+    <string name="hours"> %1$d h</string>
+    <string name="minutes"> %1$d min</string>
+    <string name="seconds"> %1$d s</string>
+    <string name="end_title2">Congratulations !</string>
+    <string name="end_title">You solved this Magic Square in%1$s !</string>
     <string name="magic_cst">Magic constant : %1$d</string>
     <string name="diagonal_sum">Diagonal Sum</string>
 </resources>

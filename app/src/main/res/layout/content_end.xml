@@ -13,14 +13,27 @@
     tools:context=".Activities.EndActivity">
 
     <TextView
+        android:id="@+id/endTitle2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/yellow_darken4"
+        android:textSize="@dimen/headline_text_size"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="@string/end_title2"/>
+
+    <TextView
         android:id="@+id/endTitle"
+        android:layout_below="@+id/endTitle2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/blue_darken4"
         android:textSize="@dimen/title_text_size"
         android:textStyle="bold"
         android:gravity="center"
-        android:text="@string/end_title"/>
+        android:layout_marginTop="10sp"
+        android:hint="@string/end_title"/>
 
     <RelativeLayout
         android:id="@+id/square"

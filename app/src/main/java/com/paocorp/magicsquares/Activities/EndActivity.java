@@ -20,6 +20,8 @@ import com.facebook.share.widget.ShareDialog;
 import com.paocorp.magicsquares.R;
 import com.paocorp.magicsquares.models.MagicSquare;
 
+import java.util.concurrent.TimeUnit;
+
 public class EndActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     ShareDialog shareDialog;
@@ -44,6 +46,13 @@ public class EndActivity extends AppCompatActivity implements NavigationView.OnN
         navigationView.setNavigationItemSelectedListener(this);
 
         magicSquareBase = (MagicSquare) getIntent().getSerializableExtra("square");
+        long duration = getIntent().getLongExtra("time", 0);
+        if (duration > 0) {
+            String time = getDurationBreakdown(duration);
+            TextView endTitle = (TextView) findViewById(R.id.endTitle);
+            endTitle.setText(getResources().getString(R.string.end_title, time));
+        }
+
         this.fillSquareGrid();
 
         FacebookSdk.sdkInitialize(getApplicationContext());
@@ -67,6 +76,36 @@ public class EndActivity extends AppCompatActivity implements NavigationView.OnN
                 }
             }
         }
+    }
+
+    private String getDurationBreakdown(long millis) {
+        if (millis < 0) {
+            throw new IllegalArgumentException("Duration must be greater than zero!");
+        }
+
+        long days = TimeUnit.MILLISECONDS.toDays(millis);
+        millis -= TimeUnit.DAYS.toMillis(days);
+        long hours = TimeUnit.MILLISECONDS.toHours(millis);
+        millis -= TimeUnit.HOURS.toMillis(hours);
+        long minutes = TimeUnit.MILLISECONDS.toMinutes(millis);
+        millis -= TimeUnit.MINUTES.toMillis(minutes);
+        long seconds = TimeUnit.MILLISECONDS.toSeconds(millis);
+
+        StringBuilder sb = new StringBuilder(64);
+        if (days > 0) {
+            sb.append(getResources().getString(R.string.days, days));
+        }
+        if (hours > 0) {
+            sb.append(getResources().getString(R.string.hours, hours));
+        }
+        if (minutes > 0) {
+            sb.append(getResources().getString(R.string.minutes, minutes));
+        }
+        if (seconds > 0) {
+            sb.append(getResources().getString(R.string.seconds, seconds));
+        }
+
+        return (sb.toString());
     }
 
     @SuppressWarnings("StatementWithEmptyBody")

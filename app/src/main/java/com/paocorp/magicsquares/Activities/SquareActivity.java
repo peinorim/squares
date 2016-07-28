@@ -6,6 +6,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.design.widget.NavigationView;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
@@ -20,6 +21,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Chronometer;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -47,6 +49,7 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
     CallbackManager callbackManager;
     PackageInfo pInfo;
     protected InterstitialAd mInterstitialAd = new InterstitialAd(this);
+    Chronometer chrono;
     EditText edt11;
     EditText edt12;
     EditText edt13;
@@ -104,6 +107,8 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
 
         d1 = (TextView) findViewById(R.id.SumDResult1);
         d2 = (TextView) findViewById(R.id.SumDResult2);
+
+        chrono = (Chronometer) findViewById(R.id.chrono);
 
         magicSquareBase = (MagicSquare) getIntent().getSerializableExtra("square");
         if (magicSquareBase == null || !magicSquareBase.valid()) {
@@ -172,8 +177,11 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         squareToCheck = new MagicSquare(arrayInput);
 
         if (magicSquareBase.compareSquares(squareToCheck)) {
+            chrono.stop();
+            long elapsedMillis = SystemClock.elapsedRealtime() - chrono.getBase();
             Intent intent = new Intent(this, EndActivity.class);
             intent.putExtra("square", magicSquareBase);
+            intent.putExtra("time", elapsedMillis);
             startActivity(intent);
             finish();
         }
@@ -244,6 +252,10 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         edt31.addTextChangedListener(new GenericTextWatcher(edt31));
         edt32.addTextChangedListener(new GenericTextWatcher(edt32));
         edt33.addTextChangedListener(new GenericTextWatcher(edt33));
+
+        chrono.setVisibility(View.VISIBLE);
+        chrono.setBase(SystemClock.elapsedRealtime());
+        chrono.start();
     }
 
     public static int randInt(int min, int max) {
