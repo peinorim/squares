@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Carré Magiques</string>
+    <string name="help">Aide</string>
+    <string name="share">Partager</string>
+
+    <string name="rate_app">Noter cette application</string>
+    <string name="need_help">Besoin d\'aide ?</string>
+    <string name="need_help_text">En mathématiques, un carré magique d\'ordre n est composé de n2 entiers strictement positifs, écrits sous la forme d\'un tableau carré. Ces nombres sont disposés de sorte que leurs sommes sur chaque rangée, sur chaque colonne et sur chaque diagonale principale soient égales.</string>
+    <string name="need_help_text2">On nomme alors constante magique la valeur de ces sommes.</string>
+    <string name="new_game">Démarrer une nouvelle partie</string>
+    <string name="shareFB">Partager sur Facebook</string>
+    <string name="fb_share_title">J\'ai joué aux Carrés Magiques !</string>
+    <string name="fb_ContentDesc">J\'aime cette application de Carrés Magiques !</string>
+    <string name="fb_solved">J\'ai résolu un Carré Magique !</string>
+    <string name="days">&#160;%1$d jours</string>
+    <string name="end_title2">Félicitations !</string>
+    <string name="end_title">Vous avez résolu ce carré magique en%1$s !</string>
+    <string name="magic_cst">Constante magique : %1$d</string>
+    <string name="diagonal_sum">Sommes des diagonales</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="check">Vérifier</string>
+    <string name="close">Fermer</string>
+</resources>
