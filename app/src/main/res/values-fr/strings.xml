@@ -18,8 +18,8 @@
     <string name="end_title">Vous avez résolu ce carré magique en%1$s !</string>
     <string name="magic_cst">Constante magique : %1$d</string>
     <string name="diagonal_sum">Sommes des diagonales</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Fermer le volet de navigation</string>
+    <string name="navigation_drawer_open">Ouvrir le volet de navigation</string>
     <string name="action_settings">Paramètres</string>
     <string name="check">Vérifier</string>
     <string name="close">Fermer</string>
