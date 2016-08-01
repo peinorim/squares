@@ -18,9 +18,16 @@
     <string name="fb_ContentDesc">I like this Magic Squares app !</string>
     <string name="fb_solved">I solved a magic square !</string>
     <string name="days">&#160;%1$d days</string>
-    <string name="end_title2">Congratulations !</string>
-    <string name="end_title">You solved this Magic Square in%1$s !</string>
+    <string name="end_title">Congratulations !</string>
+    <string name="end_title2">You solved this Magic Square in%1$s !</string>
     <string name="magic_cst">Magic constant : %1$d</string>
     <string name="diagonal_sum">Diagonal Sum</string>
     <string name="app_name">Magic Squares</string>
+    <string name="end_title2_failed">You did not manage to solve this magic square but next time you definitely will.</string>
+    <string name="end_title_failed">What a pity…</string>
+    <string name="resolve">Give up</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="resolve_msg">Are you sure you want to give up this game ?</string>
+    <string name="resolve_title">Give up the game</string>
 </resources>

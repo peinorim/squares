@@ -14,8 +14,8 @@
     <string name="fb_ContentDesc">J\'aime cette application de Carrés Magiques !</string>
     <string name="fb_solved">J\'ai résolu un Carré Magique !</string>
     <string name="days">&#160;%1$d jours</string>
-    <string name="end_title2">Félicitations !</string>
-    <string name="end_title">Vous avez résolu ce carré magique en%1$s !</string>
+    <string name="end_title">Félicitations !</string>
+    <string name="end_title2">Vous avez résolu ce carré magique en%1$s !</string>
     <string name="magic_cst">Constante magique : %1$d</string>
     <string name="diagonal_sum">Sommes des diagonales</string>
     <string name="navigation_drawer_close">Fermer le volet de navigation</string>
@@ -23,4 +23,11 @@
     <string name="action_settings">Paramètres</string>
     <string name="check">Vérifier</string>
     <string name="close">Fermer</string>
+    <string name="resolve">Abandonner</string>
+    <string name="end_title_failed">Quel dommage…</string>
+    <string name="end_title2_failed">Vous n\'avez pas réussi à résoudre ce carré magique, mais vous y arriverez la prochaine fois.</string>
+    <string name="no">Non</string>
+    <string name="yes">Oui</string>
+    <string name="resolve_msg">Etes-vous sûr de vouloir abandonner cette partie ?</string>
+    <string name="resolve_title">Abandonner la partie</string>
 </resources>

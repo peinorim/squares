@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.facebook.CallbackManager;
@@ -47,10 +48,21 @@ public class EndActivity extends AppCompatActivity implements NavigationView.OnN
 
         magicSquareBase = (MagicSquare) getIntent().getSerializableExtra("square");
         long duration = getIntent().getLongExtra("time", 0);
-        if (duration > 0) {
+        boolean solved = getIntent().getBooleanExtra("solved", false);
+
+        if (solved && duration > 0) {
             String time = getDurationBreakdown(duration);
+            TextView endTitle2 = (TextView) findViewById(R.id.endTitle2);
+            endTitle2.setText(getResources().getString(R.string.end_title2, time));
+        } else {
             TextView endTitle = (TextView) findViewById(R.id.endTitle);
-            endTitle.setText(getResources().getString(R.string.end_title, time));
+            endTitle.setText(getResources().getString(R.string.end_title_failed));
+
+            TextView endTitle2 = (TextView) findViewById(R.id.endTitle2);
+            endTitle2.setText(getResources().getString(R.string.end_title2_failed));
+
+            Button fbShare = (Button) findViewById(R.id.fbshare);
+            fbShare.setVisibility(View.GONE);
         }
 
         this.fillSquareGrid();

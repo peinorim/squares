@@ -13,7 +13,7 @@
     tools:context=".Activities.EndActivity">
 
     <TextView
-        android:id="@+id/endTitle2"
+        android:id="@+id/endTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/yellow_darken4"
@@ -21,11 +21,11 @@
         android:textAllCaps="true"
         android:textStyle="bold"
         android:gravity="center"
-        android:text="@string/end_title2"/>
+        android:text="@string/end_title"/>
 
     <TextView
-        android:id="@+id/endTitle"
-        android:layout_below="@+id/endTitle2"
+        android:id="@+id/endTitle2"
+        android:layout_below="@+id/endTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/blue_darken4"
@@ -33,11 +33,11 @@
         android:textStyle="bold"
         android:gravity="center_horizontal"
         android:layout_marginTop="10sp"
-        android:hint="@string/end_title"/>
+        android:hint="@string/end_title2"/>
 
     <RelativeLayout
         android:id="@+id/square"
-        android:layout_below="@+id/endTitle"
+        android:layout_below="@+id/endTitle2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center">
@@ -61,45 +61,40 @@
                     android:paddingBottom="1sp"
                     android:paddingRight="1sp">
 
-                    <EditText
-                        android:id="@+id/et11"
+                    <TextView
+                        android:id="@+id/tv11"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginLeft="1dp"
                         android:background="@drawable/square"
                         android:focusableInTouchMode="true"
                         android:gravity="center"
-                        android:inputType="number"
                         android:maxLength="3"
                         android:padding="5dp"
                         android:textColor="@color/black"
                         android:textSize="@dimen/square_text_size"
                         android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/et12"
+                    <TextView
+                        android:id="@+id/tv12"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginLeft="1dp"
                         android:background="@drawable/square"
                         android:gravity="center"
-                        android:inputType="number"
                         android:maxLength="3"
                         android:padding="5dp"
                         android:textColor="@color/black"
                         android:textSize="@dimen/square_text_size"
                         android:textStyle="bold" />
 
-                    <requestFocus />
-
-                    <EditText
-                        android:id="@+id/et13"
+                    <TextView
+                        android:id="@+id/tv13"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginLeft="1dp"
                         android:background="@drawable/square"
                         android:gravity="center"
-                        android:inputType="number"
                         android:maxLength="3"
                         android:padding="5dp"
                         android:textColor="@color/black"
@@ -115,41 +110,38 @@
                     android:paddingBottom="1sp"
                     android:paddingRight="1sp">
 
-                    <EditText
-                        android:id="@+id/et21"
+                    <TextView
+                        android:id="@+id/tv21"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginLeft="1dp"
                         android:background="@drawable/square"
                         android:gravity="center"
-                        android:inputType="number"
                         android:maxLength="3"
                         android:padding="5dp"
                         android:textColor="@color/black"
                         android:textSize="@dimen/square_text_size"
                         android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/et22"
+                    <TextView
+                        android:id="@+id/tv22"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginLeft="1dp"
                         android:background="@drawable/square"
                         android:gravity="center"
-                        android:inputType="number"
                         android:padding="5dp"
                         android:textColor="@color/black"
                         android:textSize="@dimen/square_text_size"
                         android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/et23"
+                    <TextView
+                        android:id="@+id/tv23"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginLeft="1dp"
                         android:background="@drawable/square"
                         android:gravity="center"
-                        android:inputType="number"
                         android:maxLength="3"
                         android:padding="5dp"
                         android:textColor="@color/black"
@@ -165,41 +157,38 @@
                     android:paddingBottom="1sp"
                     android:paddingRight="1sp">
 
-                    <EditText
-                        android:id="@+id/et31"
+                    <TextView
+                        android:id="@+id/tv31"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginLeft="1dp"
                         android:background="@drawable/square"
                         android:gravity="center"
-                        android:inputType="number"
                         android:maxLength="3"
                         android:padding="5dp"
                         android:textColor="@color/black"
                         android:textSize="@dimen/square_text_size"
                         android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/et32"
+                    <TextView
+                        android:id="@+id/tv32"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginLeft="1dp"
                         android:background="@drawable/square"
                         android:gravity="center"
-                        android:inputType="number"
                         android:padding="5dp"
                         android:textColor="@color/black"
                         android:textSize="@dimen/square_text_size"
                         android:textStyle="bold" />
 
-                    <EditText
-                        android:id="@+id/et33"
+                    <TextView
+                        android:id="@+id/tv33"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginLeft="1dp"
                         android:background="@drawable/square"
                         android:gravity="center"
-                        android:inputType="number"
                         android:maxLength="3"
                         android:padding="5dp"
                         android:textColor="@color/black"

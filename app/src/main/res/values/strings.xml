@@ -17,6 +17,11 @@
 
     <string name="rate_app">Rate this app</string>
     <string name="need_help">Need some help ?</string>
+    <string name="resolve">Give up</string>
+    <string name="resolve_title">Give up the game</string>
+    <string name="resolve_msg">Are you sure you want to give up this game ?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
     <string name="need_help_text">In recreational mathematics, a magic square is an arrangement of distinct numbers (i.e., each number is used once), usually integers, in a square grid, where the numbers in each row, and in each column, and the numbers in the main and secondary diagonals, all add up to the same number, called the "magic constant."</string>
     <string name="need_help_text2">A magic square has the same number of rows as it has columns, and in conventional math notation, "n" stands for the number of rows (and columns) it has.</string>
     <string name="new_game">Start new game</string>
@@ -28,8 +33,10 @@
     <string name="hours" translatable="false">&#160;%1$d h</string>
     <string name="minutes" translatable="false">&#160;%1$d min</string>
     <string name="seconds" translatable="false">&#160;%1$d s</string>
-    <string name="end_title2">Congratulations !</string>
-    <string name="end_title">You solved this Magic Square in%1$s !</string>
+    <string name="end_title">Congratulations !</string>
+    <string name="end_title_failed">What a pity…</string>
+    <string name="end_title2">You solved this Magic Square in%1$s !</string>
+    <string name="end_title2_failed">You did not manage to solve this magic square but next time you definitely will.</string>
     <string name="magic_cst">Magic constant : %1$d</string>
     <string name="diagonal_sum">Diagonal Sum</string>
 </resources>

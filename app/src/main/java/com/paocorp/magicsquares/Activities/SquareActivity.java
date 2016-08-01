@@ -4,6 +4,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -126,7 +128,7 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         final ShowAdsApplication hideAdObj = ((ShowAdsApplication) getApplicationContext());
         boolean hideAd = hideAdObj.getHideAd();
 
-        if (!hideAd) {
+        if (isNetworkAvailable() && !hideAd) {
             mInterstitialAd.setAdUnitId(this.getResources().getString(R.string.interstitial));
             requestNewInterstitial();
             mInterstitialAd.setAdListener(new AdListener() {
@@ -182,6 +184,7 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
             Intent intent = new Intent(this, EndActivity.class);
             intent.putExtra("square", magicSquareBase);
             intent.putExtra("time", elapsedMillis);
+            intent.putExtra("solved", true);
             startActivity(intent);
             finish();
         }
@@ -209,6 +212,17 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
 
         d2.setText(String.valueOf(squareToCheck.getDiagonalSecond()));
         checkColor(d2, squareToCheck.getDiagonalSecond());
+    }
+
+    public void resolveSquare() {
+        chrono.stop();
+        long elapsedMillis = SystemClock.elapsedRealtime() - chrono.getBase();
+        Intent intent = new Intent(this, EndActivity.class);
+        intent.putExtra("square", magicSquareBase);
+        intent.putExtra("time", elapsedMillis);
+        intent.putExtra("solved", false);
+        startActivity(intent);
+        finish();
     }
 
     String nulltoIntegerDefault(String value) {
@@ -306,6 +320,27 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         alert.show();
     }
 
+    public void createResolveDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        builder.setCancelable(true);
+
+        builder.setView(inflater.inflate(R.layout.resolve_dialog, null))
+                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        resolveSquare();
+                    }
+                })
+                .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                });
+
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -333,6 +368,9 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_help) {
             createHelpDialog();
+            return true;
+        } else if (id == R.id.action_resolve) {
+            createResolveDialog();
             return true;
         }
 
@@ -394,6 +432,13 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
                 checkSquare(view);
             }
         }
+    }
+
+    protected boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(this.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
     protected void requestNewInterstitial() {

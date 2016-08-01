@@ -2,8 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_help"
+        android:id="@+id/action_resolve"
         android:orderInCategory="100"
+        android:title="@string/resolve"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_help"
+        android:orderInCategory="101"
         android:title="@string/need_help"
         app:showAsAction="never" />
 </menu>
