@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue_darken2"
+    android:background="@color/blue_darken3"
     tools:context=".Activities.SplashActivity">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -18,7 +18,7 @@
             android:fitsSystemWindows="true"
             android:adjustViewBounds="true"
             android:layout_centerInParent="true"
-            android:src="@drawable/logo_ms"/>
+            android:src="@drawable/logo_splash"/>
 
         <TextView
             android:layout_width="fill_parent"
