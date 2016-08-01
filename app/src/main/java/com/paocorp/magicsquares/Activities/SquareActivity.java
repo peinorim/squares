@@ -187,13 +187,28 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         }
 
         h1.setText(String.valueOf(squareToCheck.getRowSum()[0]));
+        checkColor(h1, squareToCheck.getRowSum()[0]);
+
         h2.setText(String.valueOf(squareToCheck.getRowSum()[1]));
+        checkColor(h2, squareToCheck.getRowSum()[1]);
+
         h3.setText(String.valueOf(squareToCheck.getRowSum()[2]));
+        checkColor(h3, squareToCheck.getRowSum()[2]);
+
         v1.setText(String.valueOf(squareToCheck.getColSum()[0]));
+        checkColor(v1, squareToCheck.getColSum()[0]);
+
         v2.setText(String.valueOf(squareToCheck.getColSum()[1]));
+        checkColor(v2, squareToCheck.getColSum()[1]);
+
         v3.setText(String.valueOf(squareToCheck.getColSum()[2]));
+        checkColor(v3, squareToCheck.getColSum()[2]);
+
         d1.setText(String.valueOf(squareToCheck.getDiagonalFirst()));
+        checkColor(d1, squareToCheck.getDiagonalFirst());
+
         d2.setText(String.valueOf(squareToCheck.getDiagonalSecond()));
+        checkColor(d2, squareToCheck.getDiagonalSecond());
     }
 
     String nulltoIntegerDefault(String value) {
@@ -211,6 +226,14 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
             return false;
         }
         return true;
+    }
+
+    private void checkColor(TextView tv, int check) {
+        if (check == magicSquareBase.getMagicConstant()) {
+            tv.setTextColor(ContextCompat.getColor(getBaseContext(), R.color.green_darken3));
+        } else {
+            tv.setTextColor(ContextCompat.getColor(getBaseContext(), R.color.red_darken3));
+        }
     }
 
     public void fillGrid() {
