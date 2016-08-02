@@ -90,15 +90,13 @@
                     <TableRow
                         android:id="@+id/tableRow11"
                         android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:paddingBottom="1sp"
-                        android:paddingRight="1sp">
+                        android:gravity="center_horizontal">
 
                         <EditText
                             android:id="@+id/et11"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
-                            android:layout_marginLeft="1dp"
+
                             android:background="@drawable/square"
                             android:focusableInTouchMode="true"
                             android:gravity="center"
@@ -113,7 +111,7 @@
                             android:id="@+id/et12"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
-                            android:layout_marginLeft="1dp"
+
                             android:background="@drawable/square"
                             android:gravity="center"
                             android:inputType="number"
@@ -129,7 +127,6 @@
                             android:id="@+id/et13"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
-                            android:layout_marginLeft="1dp"
                             android:background="@drawable/square"
                             android:gravity="center"
                             android:inputType="number"
@@ -144,15 +141,12 @@
                         android:id="@+id/tableRow21"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:paddingBottom="1sp"
-                        android:paddingRight="1sp">
+                        android:gravity="center_horizontal">
 
                         <EditText
                             android:id="@+id/et21"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
-                            android:layout_marginLeft="1dp"
                             android:background="@drawable/square"
                             android:gravity="center"
                             android:inputType="number"
@@ -166,7 +160,6 @@
                             android:id="@+id/et22"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
-                            android:layout_marginLeft="1dp"
                             android:background="@drawable/square"
                             android:gravity="center"
                             android:inputType="number"
@@ -179,7 +172,6 @@
                             android:id="@+id/et23"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
-                            android:layout_marginLeft="1dp"
                             android:background="@drawable/square"
                             android:gravity="center"
                             android:inputType="number"
@@ -194,15 +186,12 @@
                         android:id="@+id/tableRow31"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:paddingBottom="1sp"
-                        android:paddingRight="1sp">
+                        android:gravity="center_horizontal">
 
                         <EditText
                             android:id="@+id/et31"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
-                            android:layout_marginLeft="1dp"
                             android:background="@drawable/square"
                             android:gravity="center"
                             android:inputType="number"
@@ -216,7 +205,6 @@
                             android:id="@+id/et32"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
-                            android:layout_marginLeft="1dp"
                             android:background="@drawable/square"
                             android:gravity="center"
                             android:inputType="number"
@@ -229,7 +217,6 @@
                             android:id="@+id/et33"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
-                            android:layout_marginLeft="1dp"
                             android:background="@drawable/square"
                             android:gravity="center"
                             android:inputType="number"
