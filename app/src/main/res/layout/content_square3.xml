@@ -47,10 +47,10 @@
 
                 <TextView
                     android:id="@+id/SumDResult1"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="15dp"
-                    android:layout_weight="0.5"
+                    android:layout_weight="0.4"
                     android:gravity="center"
                     android:hint="D1"
                     android:padding="5dp"
@@ -59,9 +59,9 @@
 
                 <TextView
                     android:id="@+id/SumDResult2"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
+                    android:layout_weight="0.4"
                     android:gravity="center"
                     android:hint="D2"
                     android:padding="5dp"
@@ -96,7 +96,6 @@
                             android:id="@+id/et11"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
-
                             android:background="@drawable/square"
                             android:focusableInTouchMode="true"
                             android:gravity="center"
@@ -111,7 +110,6 @@
                             android:id="@+id/et12"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
-
                             android:background="@drawable/square"
                             android:gravity="center"
                             android:inputType="number"
@@ -120,8 +118,6 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/square_text_size"
                             android:textStyle="bold" />
-
-                        <requestFocus />
 
                         <EditText
                             android:id="@+id/et13"

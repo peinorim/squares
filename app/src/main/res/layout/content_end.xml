@@ -82,6 +82,7 @@
                         android:padding="5dp"
                         android:textColor="@color/black"
                         android:textSize="@dimen/square_text_size"
+                        android:hint="115"
                         android:textStyle="bold" />
 
                     <TextView
