@@ -12,10 +12,9 @@ public class MagicSquareSearch {
         while (!this.validate()) {
             a = 1 + (int) (Math.random() * ((50 - 1) + 1));
 
-            b = a + (int) (Math.random() * ((50 - a) + 1));
-            while (b == 2 * a) {
+            do {
                 b = a + (int) (Math.random() * ((50 - a) + 1));
-            }
+            } while (b == 2 * a);
 
             c = (a + b) + (int) (Math.random() * ((60 - (a + b)) + 1));
         }

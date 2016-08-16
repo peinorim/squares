@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Cuadrados Mágicos</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="check">Comprobar</string>
+    <string name="close">Cerca</string>
+    <string name="days">&#160;%1$d días</string>
+    <string name="diagonal_sum">Suma diagonal</string>
+    <string name="end_title">¡Felicitaciones !</string>
+    <string name="end_title2">Usted ha resuelto este cuadrado mágico en %1$s !</string>
+    <string name="end_title2_failed">No ha logrado resolver el cuadrado mágico, pero vas a llegar la próxima vez.</string>
+    <string name="end_title_failed">Qué pena…</string>
+    <string name="fb_ContentDesc">Me gusta este aplicación de Cuadrados Mágicos !</string>
+    <string name="fb_share_title">¡ Jugué Cuadrados Mágicos !</string>
+    <string name="fb_solved">¡ He resuelto un cuadrado mágico !</string>
+    <string name="help">Ayuda</string>
+    <string name="magic_cst">Constante Mágica : %1$d</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="need_help">¿ Necesito ayuda ?</string>
+    <string name="need_help_text">Un cuadrado mágico es una tabla de grado primario donde se dispone de una serie de números enteros en un cuadrado o matriz de forma tal que la suma de los números por columnas, filas y diagonales principales sea la misma</string>
+    <string name="need_help_text2">Usualmente los números empleados para rellenar las casillas son consecutivos, de 1 a n², siendo n el número de columnas y filas del cuadrado mágico.</string>
+    <string name="new_game">Empieza un juego nuevo</string>
+    <string name="no">No</string>
+    <string name="rate_app">Califica esta aplicación</string>
+    <string name="resolve">Rendirse</string>
+    <string name="resolve_msg">¿ Está seguro de que desea renunciar a este juego ?</string>
+    <string name="resolve_title">Dejar el juego</string>
+    <string name="share">Compartir</string>
+    <string name="shareFB">Compartir en Facebook</string>
+    <string name="yes">Sí</string>
+</resources>

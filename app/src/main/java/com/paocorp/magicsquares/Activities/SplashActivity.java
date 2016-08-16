@@ -10,10 +10,6 @@ import com.paocorp.magicsquares.R;
 import com.paocorp.magicsquares.models.MagicSquare;
 import com.paocorp.magicsquares.models.MagicSquareSearch;
 
-/**
- * An example full-screen activity that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
- */
 public class SplashActivity extends AppCompatActivity {
 
     private MagicSquare square;
