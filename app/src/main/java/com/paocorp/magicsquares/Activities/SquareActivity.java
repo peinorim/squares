@@ -407,6 +407,7 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+        finish();
         startActivity(intent);
         return true;
     }
