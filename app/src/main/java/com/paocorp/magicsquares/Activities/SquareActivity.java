@@ -412,6 +412,10 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         return true;
     }
 
+    public void createResolveDialog(View view) {
+        createResolveDialog();
+    }
+
     //Declaration
     public class GenericTextWatcher implements TextWatcher {
 
