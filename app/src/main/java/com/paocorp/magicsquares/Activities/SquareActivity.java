@@ -33,6 +33,7 @@ import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.paocorp.magicsquares.R;
 import com.paocorp.magicsquares.models.MagicSquare;
@@ -50,6 +51,7 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
     ShareDialog shareDialog;
     CallbackManager callbackManager;
     PackageInfo pInfo;
+    AdView adView;
     protected InterstitialAd mInterstitialAd = new InterstitialAd(this);
     Chronometer chrono;
     EditText edt11;
@@ -138,6 +140,10 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
                     hideAdObj.setHideAd(true);
                 }
             });
+        }
+
+        if (isNetworkAvailable()) {
+            loadBanner();
         }
 
         try {
@@ -459,5 +465,11 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
         }
+    }
+
+    private void loadBanner() {
+        adView = (AdView) this.findViewById(R.id.banner_bottom);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
     }
 }
