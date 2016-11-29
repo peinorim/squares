@@ -4,6 +4,7 @@
     <string name="store_url" translatable="false">https://play.google.com/store/apps/details?id=com.paocorp.magicsquares</string>
     <string name="facebook_app_id" translatable="false">914409908597657</string>
     <string name="interstitial" translatable="false">ca-app-pub-2669557761715669/2388367230</string>
+    <string name="banner" translatable="false">ca-app-pub-2669557761715669/4672873235</string>
     <string name="app_icon_url" translatable="false">http://paocorp.com/res/images/ico/magicsquare.png</string>
     <string name="blank" translatable="false">&#160;</string>
 

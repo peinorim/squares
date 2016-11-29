@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,13 +9,42 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingTop="10sp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Activities.SquareActivity"
     tools:showIn="@layout/app_bar_square">
 
+    <RelativeLayout
+        android:id="@+id/btns"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/giveup"
+            android:layout_width="25sp"
+            android:layout_height="25sp"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/ic_flag_white_24dp"
+            android:backgroundTint="@color/black"
+            android:padding="5sp"
+            android:onClick="createResolveDialog"
+            android:layout_marginRight="21sp"/>
+
+        <ImageButton
+            android:id="@+id/helpbtn"
+            android:layout_width="25sp"
+            android:layout_height="25sp"
+            android:layout_toRightOf="@+id/giveup"
+            android:background="@drawable/ic_help_24dp"
+            android:backgroundTint="@color/black"
+            android:padding="5sp"
+            android:layout_marginLeft="5sp"
+            android:onClick="createHelpDialog"/>
+    </RelativeLayout>
+
     <LinearLayout
         android:id="@+id/LL1"
+        android:layout_below="@+id/btns"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center|center_vertical"
@@ -89,13 +119,14 @@
 
                     <TableRow
                         android:id="@+id/tableRow11"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal">
 
                         <EditText
                             android:id="@+id/et11"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="60sp"
+                            android:layout_height="60sp"
                             android:background="@drawable/square"
                             android:focusableInTouchMode="true"
                             android:gravity="center"
@@ -108,8 +139,8 @@
 
                         <EditText
                             android:id="@+id/et12"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="60sp"
+                            android:layout_height="60sp"
                             android:background="@drawable/square"
                             android:gravity="center"
                             android:inputType="number"
@@ -121,8 +152,8 @@
 
                         <EditText
                             android:id="@+id/et13"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="60sp"
+                            android:layout_height="60sp"
                             android:background="@drawable/square"
                             android:gravity="center"
                             android:inputType="number"
@@ -141,8 +172,8 @@
 
                         <EditText
                             android:id="@+id/et21"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="60sp"
+                            android:layout_height="60sp"
                             android:background="@drawable/square"
                             android:gravity="center"
                             android:inputType="number"
@@ -154,8 +185,8 @@
 
                         <EditText
                             android:id="@+id/et22"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="60sp"
+                            android:layout_height="60sp"
                             android:background="@drawable/square"
                             android:gravity="center"
                             android:inputType="number"
@@ -166,8 +197,8 @@
 
                         <EditText
                             android:id="@+id/et23"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="60sp"
+                            android:layout_height="60sp"
                             android:background="@drawable/square"
                             android:gravity="center"
                             android:inputType="number"
@@ -186,8 +217,8 @@
 
                         <EditText
                             android:id="@+id/et31"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="60sp"
+                            android:layout_height="60sp"
                             android:background="@drawable/square"
                             android:gravity="center"
                             android:inputType="number"
@@ -199,8 +230,8 @@
 
                         <EditText
                             android:id="@+id/et32"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="60sp"
+                            android:layout_height="60sp"
                             android:background="@drawable/square"
                             android:gravity="center"
                             android:inputType="number"
@@ -211,8 +242,8 @@
 
                         <EditText
                             android:id="@+id/et33"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_width="60sp"
+                            android:layout_height="60sp"
                             android:background="@drawable/square"
                             android:gravity="center"
                             android:inputType="number"
@@ -228,15 +259,15 @@
 
             <RelativeLayout
                 android:id="@+id/SumContainer"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true">
 
                 <TextView
                     android:id="@+id/SumXResult1"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="60sp"
+                    android:layout_height="60sp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:gravity="center"
@@ -248,8 +279,8 @@
 
                 <TextView
                     android:id="@+id/SumXResult2"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="60sp"
+                    android:layout_height="60sp"
                     android:layout_below="@+id/SumXResult1"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="0dp"
@@ -260,8 +291,8 @@
 
                 <TextView
                     android:id="@+id/SumXResult3"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="60sp"
+                    android:layout_height="60sp"
                     android:layout_below="@+id/SumXResult2"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="0dp"
@@ -291,8 +322,8 @@
 
                 <TextView
                     android:id="@+id/SumYResult1"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="60sp"
+                    android:layout_height="60sp"
                     android:layout_marginRight="0dp"
                     android:layout_weight="0.33"
                     android:gravity="center"
@@ -302,8 +333,8 @@
 
                 <TextView
                     android:id="@+id/SumYResult2"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="60sp"
+                    android:layout_height="60sp"
                     android:layout_marginRight="0dp"
                     android:layout_weight="0.33"
                     android:gravity="center"
@@ -313,8 +344,8 @@
 
                 <TextView
                     android:id="@+id/SumYResult3"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:layout_width="60sp"
+                    android:layout_height="60sp"
                     android:layout_marginRight="0dp"
                     android:layout_weight="0.33"
                     android:gravity="center"
@@ -345,18 +376,20 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/giveup"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/rel_banner"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/LL1"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:background="@drawable/button_restart"
-        android:drawablePadding="5dp"
-        android:paddingLeft="21dp"
-        android:paddingRight="21dp"
-        android:text="@string/resolve"
-        android:onClick="createResolveDialog"
-        android:textColor="@color/white" />
+        android:layout_below="@+id/LL1">
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/banner_bottom"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner" />
+    </RelativeLayout>
 
 </RelativeLayout>

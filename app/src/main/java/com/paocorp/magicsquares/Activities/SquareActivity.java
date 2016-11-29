@@ -416,6 +416,10 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         createResolveDialog();
     }
 
+    public void createHelpDialog(View view) {
+        createHelpDialog();
+    }
+
     //Declaration
     public class GenericTextWatcher implements TextWatcher {
 
