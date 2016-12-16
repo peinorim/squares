@@ -5,6 +5,12 @@
         <item
             android:id="@+id/new_game"
             android:title="@string/new_game" />
+        <item
+            android:id="@+id/action_resolve2"
+            android:title="@string/resolve"/>
+        <item
+            android:id="@+id/action_help2"
+            android:title="@string/help"/>
     </group>
 
     <item android:title="@string/share">

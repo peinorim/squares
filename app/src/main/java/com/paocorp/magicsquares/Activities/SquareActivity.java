@@ -33,6 +33,7 @@ import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.paocorp.magicsquares.R;
 import com.paocorp.magicsquares.models.MagicSquare;
@@ -51,6 +52,7 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
     CallbackManager callbackManager;
     PackageInfo pInfo;
     protected InterstitialAd mInterstitialAd = new InterstitialAd(this);
+    AdView adView;
     Chronometer chrono;
     EditText edt11;
     EditText edt12;
@@ -139,6 +141,10 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
                 }
             });
         }
+
+        adView = (AdView) findViewById(R.id.banner_bottom);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
 
         try {
             pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
@@ -383,9 +389,18 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         Intent intent = new Intent(this, SquareActivity.class);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         if (id == R.id.new_game) {
 
+        } else if (id == R.id.action_help2) {
+            drawer.closeDrawer(GravityCompat.START);
+            createHelpDialog();
+            return true;
+        } else if (id == R.id.action_resolve2) {
+            drawer.closeDrawer(GravityCompat.START);
+            createResolveDialog();
+            return true;
         } else if (id == R.id.nav_share) {
             if (ShareDialog.canShow(ShareLinkContent.class)) {
                 String fbText = getResources().getString(R.string.fb_ContentDesc);
@@ -405,7 +420,6 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         finish();
         startActivity(intent);
