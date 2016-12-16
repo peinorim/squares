@@ -51,6 +51,7 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
     ShareDialog shareDialog;
     CallbackManager callbackManager;
     PackageInfo pInfo;
+    AdView adView;
     protected InterstitialAd mInterstitialAd = new InterstitialAd(this);
     AdView adView;
     Chronometer chrono;
@@ -142,9 +143,9 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
             });
         }
 
-        adView = (AdView) findViewById(R.id.banner_bottom);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
+        if (isNetworkAvailable()) {
+            loadBanner();
+        }
 
         try {
             pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
@@ -420,6 +421,7 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         finish();
         startActivity(intent);
@@ -473,5 +475,11 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
         }
+    }
+
+    private void loadBanner() {
+        adView = (AdView) this.findViewById(R.id.banner_bottom);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
     }
 }
