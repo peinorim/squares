@@ -1,4 +1,4 @@
-package com.paocorp.magicsquares.Activities;
+package com.paocorp.magicsquares.activities;
 
 import android.content.Intent;
 import android.net.Uri;

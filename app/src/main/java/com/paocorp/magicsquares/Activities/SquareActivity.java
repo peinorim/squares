@@ -1,4 +1,4 @@
-package com.paocorp.magicsquares.Activities;
+package com.paocorp.magicsquares.activities;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -51,7 +51,6 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
     ShareDialog shareDialog;
     CallbackManager callbackManager;
     PackageInfo pInfo;
-    AdView adView;
     protected InterstitialAd mInterstitialAd = new InterstitialAd(this);
     AdView adView;
     Chronometer chrono;
@@ -421,19 +420,10 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         finish();
         startActivity(intent);
         return true;
-    }
-
-    public void createResolveDialog(View view) {
-        createResolveDialog();
-    }
-
-    public void createHelpDialog(View view) {
-        createHelpDialog();
     }
 
     //Declaration

@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:gravity="center_vertical"
-    tools:context=".Activities.EndActivity">
+    tools:context=".activities.EndActivity">
 
     <TextView
         android:id="@+id/endTitle"
