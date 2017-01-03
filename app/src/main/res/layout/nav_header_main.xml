@@ -11,27 +11,36 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="10sp"
-        android:src="@mipmap/ic_launcher" />
-
-    <TextView
-        android:id="@+id/appVersion"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="10sp"
-        android:text="@string/app_name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:layout_marginLeft="10sp"
+        android:layout_marginStart="10sp">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:autoLink="web"
-        android:textColorLink="@color/white"
-        android:text="@string/author" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10sp"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/appVersion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView"
+            android:paddingTop="10sp"
+            android:text="@string/app_name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appVersion"
+            android:autoLink="web"
+            android:text="@string/author"
+            android:textColorLink="@color/white" />
+    </RelativeLayout>
 
 </LinearLayout>

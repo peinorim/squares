@@ -129,8 +129,13 @@ public class SquareActivity extends AppCompatActivity implements NavigationView.
 
         final ShowAdsApplication hideAdObj = ((ShowAdsApplication) getApplicationContext());
         boolean hideAd = hideAdObj.getHideAd();
+        Bundle b = getIntent().getExtras();
+        boolean diff = false;
+        if (b != null) {
+            diff = b.getBoolean("showAd");
+        }
 
-        if (isNetworkAvailable() && !hideAd) {
+        if (isNetworkAvailable() && (diff || !hideAd)) {
             mInterstitialAd.setAdUnitId(this.getResources().getString(R.string.interstitial));
             requestNewInterstitial();
             mInterstitialAd.setAdListener(new AdListener() {
