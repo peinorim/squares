@@ -128,6 +128,9 @@ public class EndActivity extends AppCompatActivity implements NavigationView.OnN
         Intent intent = new Intent(this, SquareActivity.class);
 
         if (id == R.id.new_game) {
+            Bundle b = new Bundle();
+            b.putBoolean("showAd", true);
+            intent.putExtras(b);
 
         } else if (id == R.id.nav_share) {
             if (ShareDialog.canShow(ShareLinkContent.class)) {
@@ -170,6 +173,9 @@ public class EndActivity extends AppCompatActivity implements NavigationView.OnN
 
     public void restartGame(View v) {
         Intent intent = new Intent(this, SquareActivity.class);
+        Bundle b = new Bundle();
+        b.putBoolean("showAd", true);
+        intent.putExtras(b);
         startActivity(intent);
         finish();
     }
@@ -182,6 +188,9 @@ public class EndActivity extends AppCompatActivity implements NavigationView.OnN
 
     public void onBackPressed() {
         Intent intent = new Intent(this, SquareActivity.class);
+        Bundle b = new Bundle();
+        b.putBoolean("showAd", true);
+        intent.putExtras(b);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         this.startActivity(intent);
