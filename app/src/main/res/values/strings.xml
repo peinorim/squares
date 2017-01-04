@@ -40,7 +40,7 @@
     <string name="end_title2_failed">You did not manage to solve this magic square but next time you definitely will.</string>
     <string name="magic_cst">Magic constant : %1$d</string>
 
-    <string name="billingKey" translatable="false"></string>
+    <string name="billingKey" translatable="false">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxiWfgZl1W5pxE8BpGXY7Pd6yPHOqzSgZbxAsAFsnNtdjQyECl97v8mjN2zqx5eM4HVdeaa96kD5uwe4yJMov29c+qxyv/kTOnRls5JarKDjSc0OyvIsRh5JYvdrBbcJVqbxjOhQnBMC1AzXOzo857TD+n067Jy8w0S8lFgjINHRH2s4D/psiFPYQhszSzJ8E/nhYBoBw/RD+nLXAoNPw6mYY35pzrmlmWYDG8kfF9L/1LbeRcAx/DqqcOEuKysKqH9KR3fNm0XRC0q7H4lUyNbYOGMTN1UNNID2W+WYddckoDky+4Pu3p501M/4AOjz6J5SkUvIOQxpyuQnwII0StwIDAQAB</string>
     <string name="purchase">Purchase</string>
     <string name="endAds">Tired of ads ?</string>
     <string name="purchaseNoAds">Make a one-time payment of %1$s</string>
