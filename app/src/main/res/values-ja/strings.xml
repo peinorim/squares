@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="check">チェックする</string>
+    <string name="help">助けて</string>
+    <string name="close">閉じる</string>
+    <string name="share">シェア</string>
+
+    <string name="rate_app">このアプリケーションを評価する</string>
+    <string name="need_help">助けが要る</string>
+    <string name="need_help_text">魔方陣（まほうじん、英：Magic square）とは、正方形の方陣に数字を配置し、縦・横・斜めのいずれの列についても</string>
+    <string name="need_help_text2">その列の数字の合計が同じになるもののことである。特に1から方陣のマスの総数までの数字を1つずつ過不足なく使ったものを言う。ファンタジーなどで用いられる「魔法陣」とは無関係である。</string>
+    <string name="new_game">新しいゲームを始める</string>
+    <string name="shareFB">Facebookでシェア</string>
+    <string name="fb_share_title">私は魔法の四角を演奏した</string>
+    <string name="fb_ContentDesc">私はこのマジックスクエアアプリケーションが好きです</string>
+    <string name="fb_solved">私はマジックスクエアを解決しました !</string>
+    <string name="days">&#160;%1$d 日</string>
+    <string name="end_title">おめでとう</string>
+    <string name="end_title2">あなたはこのマジックスクエアを解決しました %1$s !</string>
+    <string name="magic_cst">%1$d : マジック定数</string>
+    <string name="app_name">魔方陣</string>
+    <string name="end_title2_failed">あなたはこのマジックスクエアを解決することはできませんでしたが、次回は確実に</string>
+    <string name="end_title_failed">お気の毒に…</string>
+    <string name="resolve">あきらめる</string>
+    <string name="no">いいえ</string>
+    <string name="yes">はい</string>
+    <string name="resolve_msg">このゲームをあきらめてもよろしいですか ?</string>
+    <string name="resolve_title">ゲームをあきらめる</string>
+
+    <string name="purchase">購入</string>
+    <string name="endAds">広告にうんざり ?</string>
+    <string name="purchaseNoAds">1回限りの支払いをする %1$s</string>
+    <string name="noMoreAds">永遠に広告がなくなりました</string>
+    <string name="purchaseNotDone">購入していない</string>
+    <string name="purchaseError">支払い中にエラーが発生しました</string>
+    <string name="purchaseThx">あなたの購入をありがとう</string>
+</resources>

@@ -7,10 +7,14 @@
             android:title="@string/new_game" />
         <item
             android:id="@+id/action_resolve2"
-            android:title="@string/resolve"/>
+            android:title="@string/resolve" />
         <item
             android:id="@+id/action_help2"
-            android:title="@string/help"/>
+            android:title="@string/help" />
+        <item
+            android:id="@+id/nav_billing"
+            android:icon="@drawable/ic_money_off_black_24dp"
+            android:title="@string/endAds" />
     </group>
 
     <item android:title="@string/share">

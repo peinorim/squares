@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="check">검사</string>
+    <string name="help">도움</string>
+    <string name="close">닫기</string>
+    <string name="share">몫</string>
+
+    <string name="rate_app">이 신청서 평가하기</string>
+    <string name="need_help">도움이 필요해</string>
+    <string name="need_help_text">마방진(魔方陣)은 n2개의 수를 가로, 세로, 대각선 방향의 수를 더하면 모두 같은 값이 나오도록 n × n 행렬에 배열한 것이다. 마법진(魔法陣), 낙서(洛書)라고도 한다</string>
+    <string name="need_help_text2">각 행의 합과 각 열의 합, 그리고 각 대각선의 합 M은 n에만 관계가 있고, 이 값은 다음과 같다.</string>
+    <string name="new_game">새로운 게임을 시작하십시오.</string>
+    <string name="shareFB">페이스 북에서 공유</string>
+    <string name="fb_share_title">나는 마술 광장을했다.</string>
+    <string name="fb_ContentDesc">나는이 마술 제곱 응용 프로그램을 좋아한다.</string>
+    <string name="fb_solved">나는 마술 광장을 해결했다.</string>
+    <string name="days">&#160;%1$d 일</string>
+    <string name="end_title">축하해!</string>
+    <string name="end_title2">당신은이 마술 광장을%1$s !</string>
+    <string name="magic_cst">마법 상수 : %1$d</string>
+    <string name="app_name">마방진</string>
+    <string name="end_title2_failed">당신은이 마술 광장을 해결할 수 없었지만 다음에 확실히 할 것입니다</string>
+    <string name="end_title_failed">얼마나 유감스러운가요</string>
+    <string name="resolve">포기하다</string>
+    <string name="no">아니</string>
+    <string name="yes">예</string>
+    <string name="resolve_msg">이 게임을 포기 하시겠습니까?</string>
+    <string name="resolve_title">게임을 포기하다</string>
+
+    <string name="purchase">매수</string>
+    <string name="endAds">광고에 지쳤습니까?</string>
+    <string name="purchaseNoAds">일회성 지불하기 %1$s</string>
+    <string name="noMoreAds">영원히 더 이상 광고가 없습니다</string>
+    <string name="purchaseNotDone">구매가 완료되지 않았습니다.</string>
+    <string name="purchaseError">결제하는 동안 오류가 발생했습니다.</string>
+    <string name="purchaseThx">구매해 주셔서 감사합니다.</string>
+</resources>

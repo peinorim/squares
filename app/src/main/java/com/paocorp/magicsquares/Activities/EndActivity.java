@@ -9,18 +9,28 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
 import com.paocorp.magicsquares.R;
+import com.paocorp.magicsquares.models.Global;
 import com.paocorp.magicsquares.models.MagicSquare;
+import com.paocorp.magicsquares.util.IabHelper;
+import com.paocorp.magicsquares.util.IabResult;
+import com.paocorp.magicsquares.util.Inventory;
+import com.paocorp.magicsquares.util.Purchase;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class EndActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -28,6 +38,10 @@ public class EndActivity extends AppCompatActivity implements NavigationView.OnN
     ShareDialog shareDialog;
     CallbackManager callbackManager;
     MagicSquare magicSquareBase;
+    IabHelper mHelper;
+    boolean mIsRemoveAdds = false;
+    String SKU_NOAD = Global.SKU_NOAD;
+    NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +57,7 @@ public class EndActivity extends AppCompatActivity implements NavigationView.OnN
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         magicSquareBase = (MagicSquare) getIntent().getSerializableExtra("square");
@@ -70,6 +84,29 @@ public class EndActivity extends AppCompatActivity implements NavigationView.OnN
         FacebookSdk.sdkInitialize(getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
         shareDialog = new ShareDialog(this);
+
+        String base64EncodedPublicKey = this.getResources().getString(R.string.billingKey);
+        mHelper = new IabHelper(this, base64EncodedPublicKey);
+
+        mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener() {
+            @Override
+            public void onIabSetupFinished(IabResult result) {
+                if (!result.isSuccess()) {
+                    // Oh no, there was a problem.
+                    Log.d("BILLING-ISSUE", "Problem setting up In-app Billing: " + result);
+                    return;
+                }
+                if (result.isSuccess()) {
+                    try {
+                        List additionalSkuList = new ArrayList<>();
+                        additionalSkuList.add(SKU_NOAD);
+                        mHelper.queryInventoryAsync(true, additionalSkuList, additionalSkuList, mGotInventoryListener);
+                    } catch (IabHelper.IabAsyncInProgressException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
     }
 
     private void fillSquareGrid() {
@@ -146,6 +183,8 @@ public class EndActivity extends AppCompatActivity implements NavigationView.OnN
             }
         } else if (id == R.id.nav_rate) {
             intent = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.store_url)));
+        } else if (id == R.id.nav_billing) {
+            intent = new Intent(this, BillingActivity.class);
         }
 
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -154,6 +193,7 @@ public class EndActivity extends AppCompatActivity implements NavigationView.OnN
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         startActivity(intent);
+        finish();
         return true;
     }
 
@@ -180,12 +220,6 @@ public class EndActivity extends AppCompatActivity implements NavigationView.OnN
         finish();
     }
 
-    @Override
-    protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode, resultCode, data);
-    }
-
     public void onBackPressed() {
         Intent intent = new Intent(this, SquareActivity.class);
         Bundle b = new Bundle();
@@ -195,5 +229,68 @@ public class EndActivity extends AppCompatActivity implements NavigationView.OnN
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         this.startActivity(intent);
         finish();
+    }
+
+    private IabHelper.QueryInventoryFinishedListener mGotInventoryListener = new IabHelper.QueryInventoryFinishedListener() {
+        @Override
+        public void onQueryInventoryFinished(IabResult result, Inventory inventory) {
+            if (result.isFailure()) {
+                // handle error here
+                Toast.makeText(EndActivity.this, "error", Toast.LENGTH_LONG).show();
+            } else {
+                mIsRemoveAdds = inventory.hasPurchase(SKU_NOAD);
+                Purchase purchase = inventory.getPurchase(SKU_NOAD);
+                if (!mIsRemoveAdds || (purchase != null && purchase.getPurchaseState() != 0)) {
+                    Global.isNoAdsPurchased = false;
+                } else {
+                    Global.isNoAdsPurchased = true;
+                    Menu menu = navigationView.getMenu();
+                    MenuItem nav_billing = menu.findItem(R.id.nav_billing);
+                    nav_billing.setVisible(false);
+                }
+            }
+        }
+    };
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mHelper != null) try {
+            mHelper.dispose();
+        } catch (IabHelper.IabAsyncInProgressException e) {
+            e.printStackTrace();
+        }
+        mHelper = null;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Pass on the activity result to the helper for handling
+        if (!mHelper.handleActivityResult(requestCode, resultCode, data)) {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
+    private void queryPurchasedItems() {
+        //check if user has bought "remove adds"
+        if (mHelper.isSetupDone() && !mHelper.isAsyncInProgress()) {
+            try {
+                mHelper.queryInventoryAsync(mGotInventoryListener);
+            } catch (IabHelper.IabAsyncInProgressException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        queryPurchasedItems();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        queryPurchasedItems();
     }
 }

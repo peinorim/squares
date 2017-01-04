@@ -5,7 +5,6 @@
     <string name="check">Comprobar</string>
     <string name="close">Cerca</string>
     <string name="days">&#160;%1$d días</string>
-    <string name="diagonal_sum">Suma diagonal</string>
     <string name="end_title">¡Felicitaciones!</string>
     <string name="end_title2">Has resuelto este cuadrado mágico en %1$s!</string>
     <string name="end_title2_failed">No has logrado resolver el cuadrado mágico, pero vas a conseguirlo la próxima vez.</string>
@@ -29,4 +28,12 @@
     <string name="share">Compartir</string>
     <string name="shareFB">Compartir en Facebook</string>
     <string name="yes">Sí</string>
+
+    <string name="purchase">Compra</string>
+    <string name="endAds">¿Cansado de los anuncios?</string>
+    <string name="purchaseNoAds">Hacer un pago único de %1$s</string>
+    <string name="noMoreAds">No tienes anuncios publicitarios para siempre</string>
+    <string name="purchaseNotDone">Compra no realizada</string>
+    <string name="purchaseError">Error al realizar el pago</string>
+    <string name="purchaseThx">Gracias por su compra</string>
 </resources>

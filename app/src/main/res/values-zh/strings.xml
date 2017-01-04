@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="check">检查</string>
+    <string name="help">帮帮我</string>
+    <string name="close">关</string>
+    <string name="share">分享</string>
+
+    <string name="rate_app">评价这个应用程序</string>
+    <string name="need_help">需要一些帮助</string>
+    <string name="need_help_text">幻方，有时又称魔方（该称呼现一般指立方体的魔術方塊）或纵横图，由一组排放在正方形中的整数组成，其每行、每列以及两条对角线上的数之和均相等。通常幻方由从  1到 N² 的连续整数组成，其中 N为正方形的行或列的数目。因此 N阶幻方有 N行 N列，并且所填充的数为从 1到 N²</string>
+    <string name="need_help_text2">幻方可以使用 N阶方阵来表示，方阵的每行、每列以及两条对角线的和都等于常数 M_{2}(N)，如果填充数为 1,2,… ,N²，那么有</string>
+    <string name="new_game">开始一个新游戏</string>
+    <string name="shareFB">在脸书上分享</string>
+    <string name="fb_share_title">我玩了魔方！</string>
+    <string name="fb_ContentDesc">我喜欢这个魔术方块应用！</string>
+    <string name="fb_solved">我解决了一个魔术广场！</string>
+    <string name="days">&#160;%1$d 天</string>
+    <string name="end_title">祝贺！</string>
+    <string name="end_title2">你解决了这个魔术广场%1$s !</string>
+    <string name="magic_cst">%1$d : 魔法常量</string>
+    <string name="app_name">幻方</string>
+    <string name="end_title2_failed">你没有设法解决这个魔术广场，但下一次你绝对会的。</string>
+    <string name="end_title_failed">太遗憾了…</string>
+    <string name="resolve">放弃</string>
+    <string name="no">没有</string>
+    <string name="yes">是</string>
+    <string name="resolve_msg">你确定要放弃这个游戏吗？</string>
+    <string name="resolve_title">放弃游戏</string>
+
+    <string name="purchase">采购</string>
+    <string name="endAds">厌倦了广告 ?</string>
+    <string name="purchaseNoAds">进行一次性付款 %1$s</string>
+    <string name="noMoreAds">永远不再有广告</string>
+    <string name="purchaseNotDone">购买未完成</string>
+    <string name="purchaseError">付款时出错</string>
+    <string name="purchaseThx">感谢您的购买</string>
+</resources>
