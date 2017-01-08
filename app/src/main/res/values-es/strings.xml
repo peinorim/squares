@@ -29,11 +29,4 @@
     <string name="shareFB">Compartir en Facebook</string>
     <string name="yes">Sí</string>
 
-    <string name="purchase">Compra</string>
-    <string name="endAds">¿Cansado de los anuncios?</string>
-    <string name="purchaseNoAds">Hacer un pago único de %1$s</string>
-    <string name="noMoreAds">No tienes anuncios publicitarios para siempre</string>
-    <string name="purchaseNotDone">Compra no realizada</string>
-    <string name="purchaseError">Error al realizar el pago</string>
-    <string name="purchaseThx">Gracias por su compra</string>
 </resources>

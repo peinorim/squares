@@ -30,11 +30,4 @@
     <string name="resolve_msg">Are you sure you want to give up this game ?</string>
     <string name="resolve_title">Give up the game</string>
 
-    <string name="purchase">Purchase</string>
-    <string name="endAds">Tired of ads ?</string>
-    <string name="purchaseNoAds">Make a one-time payment of %1$s</string>
-    <string name="noMoreAds">No more ads forever</string>
-    <string name="purchaseNotDone">Purchase not done</string>
-    <string name="purchaseError">Error while making the payment</string>
-    <string name="purchaseThx">Thanks for your purchase</string>
 </resources>

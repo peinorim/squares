@@ -54,18 +54,6 @@
             android:launchMode="singleInstance"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustResize|stateVisible|stateAlwaysHidden" />
-
-        <activity
-            android:name=".activities.BillingActivity"
-            android:label="@string/purchase"
-            android:launchMode="singleInstance"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustResize|adjustPan">
-
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activities.SquareActivity" />
-        </activity>
     </application>
 
 </manifest>

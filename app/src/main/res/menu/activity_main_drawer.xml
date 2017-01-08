@@ -4,17 +4,20 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/new_game"
+            android:icon="@drawable/ic_refresh_black_24dp"
             android:title="@string/new_game" />
         <item
             android:id="@+id/action_resolve2"
+            android:icon="@drawable/ic_flag_white_24dp"
             android:title="@string/resolve" />
         <item
             android:id="@+id/action_help2"
+            android:icon="@drawable/ic_help_24dp"
             android:title="@string/help" />
         <item
-            android:id="@+id/nav_billing"
-            android:icon="@drawable/ic_money_off_black_24dp"
-            android:title="@string/endAds" />
+            android:id="@+id/nav_rate"
+            android:icon="@drawable/ic_star_black_24dp"
+            android:title="@string/rate_app" />
     </group>
 
     <item android:title="@string/share">
@@ -23,10 +26,6 @@
                 android:id="@+id/nav_share"
                 android:icon="@drawable/com_facebook_button_icon"
                 android:title="@string/shareFB" />
-            <item
-                android:id="@+id/nav_rate"
-                android:icon="@drawable/ic_star_black_24dp"
-                android:title="@string/rate_app" />
         </menu>
     </item>
 

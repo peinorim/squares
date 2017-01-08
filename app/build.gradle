@@ -8,8 +8,8 @@ android {
         applicationId "com.paocorp.magicsquares"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 16
-        versionName "1.2.4"
+        versionCode 17
+        versionName "1.2.5"
     }
     buildTypes {
         release {

@@ -30,11 +30,4 @@
     <string name="resolve_msg">你确定要放弃这个游戏吗？</string>
     <string name="resolve_title">放弃游戏</string>
 
-    <string name="purchase">采购</string>
-    <string name="endAds">厌倦了广告 ?</string>
-    <string name="purchaseNoAds">进行一次性付款 %1$s</string>
-    <string name="noMoreAds">永远不再有广告</string>
-    <string name="purchaseNotDone">购买未完成</string>
-    <string name="purchaseError">付款时出错</string>
-    <string name="purchaseThx">感谢您的购买</string>
 </resources>

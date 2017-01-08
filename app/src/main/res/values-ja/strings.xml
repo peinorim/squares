@@ -29,12 +29,4 @@
     <string name="yes">はい</string>
     <string name="resolve_msg">このゲームをあきらめてもよろしいですか ?</string>
     <string name="resolve_title">ゲームをあきらめる</string>
-
-    <string name="purchase">購入</string>
-    <string name="endAds">広告にうんざり ?</string>
-    <string name="purchaseNoAds">1回限りの支払いをする %1$s</string>
-    <string name="noMoreAds">永遠に広告がなくなりました</string>
-    <string name="purchaseNotDone">購入していない</string>
-    <string name="purchaseError">支払い中にエラーが発生しました</string>
-    <string name="purchaseThx">あなたの購入をありがとう</string>
 </resources>

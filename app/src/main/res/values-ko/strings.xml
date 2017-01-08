@@ -29,12 +29,4 @@
     <string name="yes">예</string>
     <string name="resolve_msg">이 게임을 포기 하시겠습니까?</string>
     <string name="resolve_title">게임을 포기하다</string>
-
-    <string name="purchase">매수</string>
-    <string name="endAds">광고에 지쳤습니까?</string>
-    <string name="purchaseNoAds">일회성 지불하기 %1$s</string>
-    <string name="noMoreAds">영원히 더 이상 광고가 없습니다</string>
-    <string name="purchaseNotDone">구매가 완료되지 않았습니다.</string>
-    <string name="purchaseError">결제하는 동안 오류가 발생했습니다.</string>
-    <string name="purchaseThx">구매해 주셔서 감사합니다.</string>
 </resources>
